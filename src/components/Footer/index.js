@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Fotter = () => {
     return (
-      <footer className="fixed bottom-0 left-0 right-10 w-full bg-gray-600 text-white">
+      <footer className="relative bottom-0 left-0 right-10 w-full bg-gray-600 text-white">
         <div className="container mx-auto flex items-center justify-between h-[135px]">
           <div className="flex items-center space-x-4">
             <div className="w-16 h-16 bg-cover bg-[url(/whatsapp-image-2023-12-22-at-18-48.png)]"></div>
