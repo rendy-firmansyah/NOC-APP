@@ -11,7 +11,7 @@ const Navbar = () => {
                 <li className="mx-4 my-6 md:my-0">
                     <a href="" className="text-md hover:text-amber-500 duration-300 transition-all">SURVEI</a>
                 </li>
-                <a href="" className="px-7 py-2 bg-gray-300 rounded-lg hover:bg-gray-500 duration-300 transition-all mx-4">Login</a>
+                <a href="/login" className="px-7 py-2 bg-gray-300 rounded-lg hover:bg-gray-500 duration-300 transition-all mx-4">Login</a>
             </ul>
         </nav>
     )
