@@ -1,10 +1,11 @@
 import Image from "next/image";
-import Navbar from "@/components/Navbar";
-import Fotter from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Fotter from "../components/Footer";
 
 export default function Home() {
   return (
     <>
+      <Navbar />
       <section className="w-full lg:h-screen flex items-center">     
           <div className="flex gap-0 md:gap-10 flex-col md:flex-row sm:px-14 md:px-14 px-10 lg:pt-0 pt-20">
             <div className="flex items-center order-2 md:order-1">
@@ -79,7 +80,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+      <Fotter/>
     </>
   );
 }
