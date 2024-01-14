@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-md w-full fixed top-0 left-0">
+    <nav className="shadow-md w-full fixed top-0 left-0 z-50">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-10">
         <div className="cursor-pointer">
           <Image src="/brand-noc.png" alt="Brand Logo NOC" width={80} height={80} />
@@ -44,7 +44,9 @@ const Navbar = () => {
           onClick={toggleNavbar}
         >
           <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Beranda</li>
+          <Link href="/survei">
           <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Survei</li>
+          </Link>
           <Link href="/login">
           <button type="" className="md:text-md lg:text-xl md:ml-8 px-7 py-2 border bg-gray-400 hover:bg-gray-200 rounded-md transition-all duration-300">
             Login
