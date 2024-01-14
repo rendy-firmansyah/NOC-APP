@@ -37,7 +37,7 @@ const Login = () => {
 
   return (
     <>
-    <div className="relative flex items-center justify-center mt-[120px]">
+    <div className="relative flex items-center justify-center mt-[200px]">
      <ToastContainer />
       <div className="w-[500px] p-10 bg-white rounded-md shadow-xl">
         <div className='flex justify-center'>
