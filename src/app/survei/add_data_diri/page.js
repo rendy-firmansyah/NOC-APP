@@ -62,8 +62,6 @@ export default function add_data_diri() {
         }
       }
 
-
-
     return(
         <div className="relative mt-32 mb-20 grid min-h-screen place-items-center">
         <ToastContainer />
