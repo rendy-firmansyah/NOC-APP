@@ -36,6 +36,10 @@ model anggota_keluarga {
   komunikasi          komunikasi[]
   edudaction          pendidikan[]
   rekreasi            rekreasi[]
+  kelompok_sd         Anak_sekolah_sd[]
+  kelompok_balita     kelompok_balita[]
+  kelompok_dewasa     kelompok_dewasa[]
+  kelompok_bumil      kelompok_bumil[]
 }
 model lingkungan {
   id                  Int @id@default(autoincrement())
@@ -107,7 +111,58 @@ model rekreasi {
   id                    Int @id @default(autoincrement())
   A                     String
   B                     String
-  C                    String
+  C                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model Anak_sekolah_sd {
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model kelompok_balita{
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  E                     String
+  F                     String
+  G                     String
+  H                     String
+  I                     String
+  J                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model kelompok_dewasa{
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+model kelompok_bumil{
+   id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  E                     String
+  F                     String
+  G                     String
+  H                     String
+  I                     String
+  J                     String
+  K                     String
   id_keluarga           Int
   anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
