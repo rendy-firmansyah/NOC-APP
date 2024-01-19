@@ -9,7 +9,105 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-model USER {
-  id      Int @id@default(autoincrement())
-  user    String
+
+model kartu_keluarga {
+  id          Int @id@default(autoincrement())
+  no_kk       String @unique
+  alamat      String
+  anggota_keluarga anggota_keluarga[]
+}
+model anggota_keluarga {
+  id                  Int @id@default(autoincrement())
+  nama                String
+  nik                 String
+  hubungan            String
+  umur                String
+  jenis_kelamin       String
+  pendidikan          String
+  pekerjaan           String
+  kelompok_kesehatan  String
+  no_kk_id            Int 
+  kartu_keluarga      kartu_keluarga @relation(fields: [no_kk_id], references: [id])
+  lingkungan          lingkungan[]
+  pelayanan_kesehatan pelayanan_kesehatan[] 
+  ekonomi             ekonomi[]
+  transportasi_keamanan transportasi_keamanan[]
+  politik_pemerintahan  politik_pemerintahan[]
+  komunikasi          komunikasi[]
+  edudaction          pendidikan[]
+  rekreasi            rekreasi[]
+}
+model lingkungan {
+  id                  Int @id@default(autoincrement())
+  A1                  String
+  A2                  String
+  A3                  String
+  A4                  String
+  B1                  String
+  B2                  String
+  C1                  String
+  C2                  String
+  D1                  String
+  D2                  String
+  D3                  String
+  id_anggota_keluarga Int
+  anggota_keluarga anggota_keluarga @relation(fields: [id_anggota_keluarga],references: [id])
+}
+
+model pelayanan_kesehatan {
+  id          Int @id@default(autoincrement())
+  A           String
+  B           String
+  C           String
+  D           String
+  E           String
+  id_keluarga  Int
+  anggota_keluarga anggota_keluarga @relation(fields: [id_keluarga],references: [id])
+}
+
+model ekonomi {
+  id                Int @id@default(autoincrement())
+  A                 String
+  B                 String
+  C                 String
+  id_keluarga  Int
+  anggota_keluarga anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+model transportasi_keamanan {
+  id                Int @id @default(autoincrement())
+  A                 String
+  B                 String
+  id_keluarga       Int
+  anggota_keluarga  anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model politik_pemerintahan {
+  id                  Int @id @default(autoincrement())
+  A                   String
+  B                   String
+  id_keluarga         Int
+  anggota_keluarga    anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model komunikasi {
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  id_keluarga         Int
+  anggota_keluarga    anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+model pendidikan {
+  id                    Int @id @default(autoincrement())
+  A                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model rekreasi {
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                    String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
