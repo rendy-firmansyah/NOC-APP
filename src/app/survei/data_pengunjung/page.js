@@ -2,8 +2,8 @@ import Link from "next/link"
 
 export default function data_pengunjung() {
     return (
-        <>
-        <div className="mx-16 mt-32 pt-1 pb-10 mb-0 bg-gray-300">
+        <div className="my-[200px]">
+        <div className="mx-16 mt-32 pt-1 pb-10 bg-gray-300">
             <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4 mt-24 mx-auto">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded ">
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
@@ -79,11 +79,11 @@ export default function data_pengunjung() {
         </div>
         <div className="flex justify-end me-16">
         <Link href="/survei/umum/fisik_sosial">
-        <button type="submit" className="w-52 py-3 mt-10 font-extrabold content-end bg-gray-300">
+        <button type="submit" className="w-52 py-3 mt-10 font-extrabold content-end border-4 border-bg-greenDark bg-bg-green hover:bg-bg-greenDark">
                     Isi survey Umum
                 </button>
         </Link>
         </div>
-        </>
+        </div>
     )
 }
