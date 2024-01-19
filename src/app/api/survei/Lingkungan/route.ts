@@ -7,7 +7,7 @@ export async function POST(request: Request) {
         const Data = await request.json()
     if(!Data.a1 || !Data.a2 || !Data.a3 || !Data.a4 || !Data.b1 || !Data.b2 || !Data.c1 || !Data.c2 || !Data.d1 || !Data.d2 || !Data.d3 || !Data.id){
         return NextResponse.json({
-            success : "failed",
+            status : "failed",
             reason: "salah satu data kosong / data tidak diisi"})
     }
 

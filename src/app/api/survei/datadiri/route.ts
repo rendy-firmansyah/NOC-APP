@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     const Data = await request.json()
     if (!Data.no_kk || !Data.nama || !Data.nik || !Data.hubungan || !Data.umur || !Data.jenis_kelamin || !Data.pendidikan || !Data.pekerjaan || !Data.alamat || !Data.kelompok_kesehatan){
       return NextResponse.json({
-        success : "failed",
+        status : "failed",
         reason: "salah satu data kosong / data tidak diisi"})
     }
 
@@ -24,7 +24,7 @@ export async function POST(request: Request) {
       })
       if(!regist_kk){
         return NextResponse.json({
-          success : "failed",
+          status : "failed",
           reason : "failed to regist kk check your number and address again"
         })
       }
@@ -60,7 +60,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({
-      success : "success",
+      status : "success",
       id_kk : Number(id_kk.id)
     });
   }
@@ -123,7 +123,7 @@ export async function PUT(request: Request) {
     const Data = await request.json()
     if ( !Data.nama || !Data.nik || !Data.hubungan || !Data.umur || !Data.jenis_kelamin || !Data.pendidikan || !Data.pekerjaan || !Data.kelompok_kesehatan || !Data.id){
       return NextResponse.json({
-        success : "failed",
+        status : "failed",
         reason: "salah satu data kosong / data tidak diisi"})
     }
   
@@ -162,7 +162,7 @@ export async function PUT(request: Request) {
     }
   
     return NextResponse.json({
-      success : "success"
+      status : "success"
     });
   }
   catch(err){
