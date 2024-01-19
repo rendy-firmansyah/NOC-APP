@@ -14,6 +14,14 @@ model kartu_keluarga {
   id          Int @id@default(autoincrement())
   no_kk       String @unique
   alamat      String
+  lingkungan          lingkungan[]
+  pelayanan_kesehatan pelayanan_kesehatan[] 
+  ekonomi             ekonomi[]
+  transportasi_keamanan transportasi_keamanan[]
+  politik_pemerintahan  politik_pemerintahan[]
+  komunikasi          komunikasi[]
+  edudaction          pendidikan[]
+  rekreasi            rekreasi[]
   anggota_keluarga anggota_keluarga[]
 }
 model anggota_keluarga {
@@ -28,14 +36,6 @@ model anggota_keluarga {
   kelompok_kesehatan  String
   no_kk_id            Int 
   kartu_keluarga      kartu_keluarga @relation(fields: [no_kk_id], references: [id])
-  lingkungan          lingkungan[]
-  pelayanan_kesehatan pelayanan_kesehatan[] 
-  ekonomi             ekonomi[]
-  transportasi_keamanan transportasi_keamanan[]
-  politik_pemerintahan  politik_pemerintahan[]
-  komunikasi          komunikasi[]
-  edudaction          pendidikan[]
-  rekreasi            rekreasi[]
   kelompok_sd         Anak_sekolah_sd[]
   kelompok_balita     kelompok_balita[]
   kelompok_dewasa     kelompok_dewasa[]
@@ -55,7 +55,7 @@ model lingkungan {
   D2                  String
   D3                  String
   id_anggota_keluarga Int
-  anggota_keluarga anggota_keluarga @relation(fields: [id_anggota_keluarga],references: [id])
+  anggota_keluarga kartu_keluarga @relation(fields: [id_anggota_keluarga],references: [id])
 }
 
 model pelayanan_kesehatan {
@@ -66,7 +66,7 @@ model pelayanan_kesehatan {
   D           String
   E           String
   id_keluarga  Int
-  anggota_keluarga anggota_keluarga @relation(fields: [id_keluarga],references: [id])
+  anggota_keluarga kartu_keluarga @relation(fields: [id_keluarga],references: [id])
 }
 
 model ekonomi {
@@ -75,14 +75,14 @@ model ekonomi {
   B                 String
   C                 String
   id_keluarga  Int
-  anggota_keluarga anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 model transportasi_keamanan {
   id                Int @id @default(autoincrement())
   A                 String
   B                 String
   id_keluarga       Int
-  anggota_keluarga  anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga  kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 
 model politik_pemerintahan {
@@ -90,7 +90,7 @@ model politik_pemerintahan {
   A                   String
   B                   String
   id_keluarga         Int
-  anggota_keluarga    anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga    kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 
 model komunikasi {
@@ -98,13 +98,13 @@ model komunikasi {
   A                     String
   B                     String
   id_keluarga         Int
-  anggota_keluarga    anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga    kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 model pendidikan {
   id                    Int @id @default(autoincrement())
   A                     String
   id_keluarga           Int
-  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga      kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 
 model rekreasi {
@@ -113,7 +113,7 @@ model rekreasi {
   B                     String
   C                     String
   id_keluarga           Int
-  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+  anggota_keluarga      kartu_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 
 model Anak_sekolah_sd {
