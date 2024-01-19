@@ -4,10 +4,10 @@ import Link from "next/link"
 export default function data_diri() {
     return(
         <div className="relative mt-32 mb-20 grid min-h-screen place-items-center">
-        <div className="w-11/12 p-12 bg-slate-400 sm:w-8/12 md:w-1/2 lg:w-5/12">
+        <div className="w-11/12 p-12 bg-white shadow-xl border-2 border-bg-btn-orangeHover sm:w-8/12 md:w-1/2 lg:w-5/12">
             <h1 className="text-xl font-semibold flex justify-center">DATA DIRI ANGGOTA</h1>
             <h1 className="font-semibold mt-3">NOC Survey</h1>
-            <div className="line w-full h-[5px] bg-yellow-500 my-2 mb-3"></div>
+            <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
             <form className="mt-6">
             
             <label for="nama" className="block mt-5 text-sm font-semibold text-black uppercase">Nama Lengkap</label>
@@ -79,7 +79,7 @@ export default function data_diri() {
                 </span>
             </div>
             <Link href="/survei/data_pengunjung">
-                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-white shadow-lg focus:outline-none">
+                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orange hover:bg-bg-btn-orangeHover shadow-lg focus:outline-none">
                     Selanjutnya
                 </button>
             </Link>

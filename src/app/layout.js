@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         {!disable.includes(pathname) && <Navbar/>}
-        {children}
+        <div className='overflow-x-hidden'>
+          {children}
+        </div>
         {!disable.includes(pathname) && <Footer/>}
       </body>
     </html>

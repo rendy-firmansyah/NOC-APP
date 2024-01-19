@@ -43,12 +43,14 @@ const Navbar = () => {
           }`}
           onClick={toggleNavbar}
         >
+          <Link href="/">
           <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Beranda</li>
+          </Link>
           <Link href="/survei/data_diri">
             <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Survei</li>
           </Link>
           <Link href="/login">
-          <button type="" className="md:text-md lg:text-xl md:ml-8 px-7 py-2 border bg-gray-400 hover:bg-gray-200 rounded-md transition-all duration-300">
+          <button type="" className="md:text-md lg:text-xl md:ml-8 px-6 py-1 font-semibold text-white border-4 border-bg-btn-orangeHover bg-bg-btn-orange hover:bg-bg-btn-orangeHover rounded-sm transition-all duration-300">
             Login
           </button>
           </Link>
