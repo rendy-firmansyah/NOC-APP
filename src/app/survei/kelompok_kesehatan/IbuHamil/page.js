@@ -24,8 +24,8 @@ const IbuHamil = () => {
     const idk = searchParams.get('idk');
 
     const sendData = {
-        id : query,
-        id_kk : idk,
+        id : idk,
+        id_kk : query,
         a : a,
         b : b,
         c : c,
