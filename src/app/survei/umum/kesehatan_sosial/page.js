@@ -148,6 +148,7 @@ export default function SurveiKesehatanSosial () {
                 <div className="my-[20px] flex justify-center button-group">
                         <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-white py-4 xl:px-[175px] lg:px-[175px] px-[50px]">Sebelumnya</button>
                         <button onClick={(e)=>{e.preventDefault(); kesehatan_sosial()}} className="bg-white py-4 xl:px-[175px] lg:px-[175px] px-[50px] ms-3">Selanjutnya</button>
+
                 </div>
             </div>
         </div>

@@ -67,12 +67,14 @@ export default function data_diri() {
 
     return(
         <div className="relative mt-32 mb-20 grid min-h-screen place-items-center">
+
          <ToastContainer />
         <div className="w-11/12 p-12 bg-slate-400 sm:w-8/12 md:w-1/2 lg:w-5/12">
             <h1 className="text-xl font-semibold flex justify-center">DATA DIRI</h1>
             <h1 className="font-semibold mt-3">NOC Survey</h1>
             <div className="line w-full h-[5px] bg-yellow-500 my-2 mb-3"></div>
             <form className="mt-6" onSubmit={(e)=>{e.preventDefault(); data_diri()}}>
+
             <label for="no_kk" className="block mt-2 text-sm font-semibold text-black uppercase">No KK</label>
             <input onChange={(e)=> setNo_kk(e.target.value)} id="no_kk" type="no_kk" name="no_kk" placeholder="35xxxxxxxxxxxxxx" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
             
@@ -148,7 +150,9 @@ export default function data_diri() {
                 </span>
             </div>
 
+
                 <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-white shadow-lg focus:outline-none">
+
                     Selanjutnya
                 </button>
 

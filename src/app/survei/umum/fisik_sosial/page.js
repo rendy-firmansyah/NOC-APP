@@ -108,6 +108,7 @@ export default function SurveiFisikSosial () {
 
     return (
         <div className="relative my-[200px] flex items-center justify-center">
+
             <div className="xl:w-[980px] lg:w-[980px] h-[1430px] w-[480px] py-[30px] px-[50px] bg-slate-400">
                 <h1 className="text-center text-[24px] font-bold">SURVEI NOC</h1>
                 <h1 className="font-medium mt-3">I. LINGKUNGAN (FISIK DAN SOSIAL)</h1>
@@ -260,6 +261,7 @@ export default function SurveiFisikSosial () {
                 </div>
                 <div className="my-[20px] flex justify-center button-group">
                         <button onClick={(e)=>{e.preventDefault(); lingkungan()}} className="bg-white py-4 xl:px-[400px] lg:px-[400px] px-[120px]">Selanjutnya</button>
+
                 </div>
             </div>
         </div>

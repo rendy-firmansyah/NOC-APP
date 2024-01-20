@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { usePathname } from 'next/navigation'
 import Navbar from '../components/Navbar'
+import NavbarAdmin from '../components/NavbarAdmin'
 import Footer from '../components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -20,8 +21,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {!disable.includes(pathname) && <Navbar/>}
-        {children}
+        {pathname === "/Dashboard" || pathname === "/Wilayah" ? <NavbarAdmin/> : !disable.includes(pathname) && <Navbar/>}
+        <div className='overflow-y-hidden overflow-x-hidden'>
+          {children}
+        </div>
         {!disable.includes(pathname) && <Footer/>}
       </body>
     </html>

@@ -34,10 +34,12 @@ export default function data_pengunjung() {
 
     console.log(data)
     return (
+
         <>
         <div className="mx-16 mt-32 pt-1 pb-10 mb-0 bg-gray-300 xs:w-full">
             <div className="w-full xs:w-full mb-12 px-4 mt-24 mx-auto">
             <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
                 <div className="flex flex-col sm:flex-row items-center">
                     <div className="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -110,10 +112,12 @@ export default function data_pengunjung() {
             </div>
         </div>
         <div className="flex justify-end me-16">
+
             <button type="submit" onClick={(e)=>{e.preventDefault(); kirimdata1()}} className="w-52 py-3 mt-10 font-extrabold content-end bg-gray-300">
                 Isi survey Umum
             </button>
+
         </div>
-        </>
+        </div>
     )
 }

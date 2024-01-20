@@ -40,6 +40,9 @@ model anggota_keluarga {
   kelompok_balita     kelompok_balita[]
   kelompok_dewasa     kelompok_dewasa[]
   kelompok_bumil      kelompok_bumil[]
+  kelompok_ibu_menyusui kelompok_ibu_menyusui[]
+  kelompok_remaja     kelompok_remaja[]
+  kelompok_lansia     kelompok_lansia[]
 }
 model lingkungan {
   id                  Int @id@default(autoincrement())
@@ -151,7 +154,7 @@ model kelompok_dewasa{
   anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
 model kelompok_bumil{
-   id                    Int @id @default(autoincrement())
+  id                    Int @id @default(autoincrement())
   A                     String
   B                     String
   C                     String
@@ -163,6 +166,38 @@ model kelompok_bumil{
   I                     String
   J                     String
   K                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model kelompok_ibu_menyusui{
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model kelompok_remaja {
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  id_keluarga           Int
+  anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+model kelompok_lansia{
+  id                    Int @id @default(autoincrement())
+  A                     String
+  B                     String
+  C                     String
+  D                     String
+  E                     String
+  F                     String
+  G                     String
   id_keluarga           Int
   anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
