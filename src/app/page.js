@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="overflow-y-hidden">
       <div className="relative flex justify-center">
         <img src="/Vector-0.png" className="min-w-fit absolute -z-50 mt-[450px] me-[350px]"/>
       </div>

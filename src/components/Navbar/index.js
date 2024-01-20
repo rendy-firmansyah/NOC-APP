@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="shadow-md w-full fixed top-0 left-0 z-50">
+    <nav className="overflow-y-hidden shadow-md w-full fixed top-0 left-0 z-50">
       <div className="md:flex items-center justify-between bg-white py-4 md:px-10 px-10">
         <div className="cursor-pointer">
           <Image src="/brand-noc.png" alt="Brand Logo NOC" width={80} height={80} />
