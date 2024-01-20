@@ -3,9 +3,14 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation'
 import { useEffect } from "react";
 import nookies from 'nookies'
+import axios from 'axios'
+import { useState } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Wilayah = () => {
     const router = useRouter()
+    const [nama,setNama] = useState()
 
     useEffect(()=>{
         const cookies = nookies.get()
@@ -13,21 +18,56 @@ const Wilayah = () => {
             router.push("/login")
         }
     },[])
+
+    const sendData = {
+        nama : nama
+    }
+
+    
+
+    async function add_wilayah(){
+        const send = await axios.post("/api/dashboard/wilayah",sendData)
+        console.log(sendData)
+        if (send.data.status === "success"){
+            toast('✔️ berhasil upload data', {
+                position: "top-right",
+                autoClose: 0.1,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress:1,
+                theme: "light",
+                });
+        } 
+        else{
+          toast('❌ gagal upload data', {
+              position: "top-right",
+              autoClose: 0.1,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress:1,
+              theme: "light",
+              });
+        }
+      }
+
   
     return (
         <section className="w-full h-auto lg:h-auto">
+        <ToastContainer />
             <div className="flex justify-between pt-28 px-10">
                 <div className="">
                     <button type="" className="px-10 py-3 bg-gray-400 rounded-md font-bold">Data Wilayah</button>
                 </div>
             </div>
             <div className="mt-6 px-10">
-                <form>
-                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Nama Wilayah</label>
+                <form onSubmit={(e)=>{e.preventDefault(); add_wilayah()}}>
+                <label for="wilayah" class="block text-sm font-medium leading-6 text-gray-900">Nama Wilayah</label>
                 <div class="mt-2">
-                    <input id="email" name="wilayah" type="text" autocomplete="wilayah" placeholder="Masukkan nama wilayah disini ...." class="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
+                    <input id="wilayah" name="wilayah" type="text" onChange={(e)=> setNama(e.target.value)} autocomplete="wilayah" placeholder="Masukkan nama wilayah disini ...." class="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                 </div>
-                <button type="" className="mt-3 py-2 text-white rounded-md w-full bg-blue-600 hover:bg-blue-500 transition-all duration-300">Submit</button>
+                <button type="submit" className="mt-3 py-2 text-white rounded-md w-full bg-blue-600 hover:bg-blue-500 transition-all duration-300">Submit</button>
                 </form>
             </div>
             <div className="mt-6 px-10">
