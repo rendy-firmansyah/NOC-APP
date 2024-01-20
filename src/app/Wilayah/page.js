@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const Wilayah = () => {
     const router = useRouter()
     const [nama,setNama] = useState()
+    const [data,setData] = useState()
 
     useEffect(()=>{
         const cookies = nookies.get()
@@ -23,6 +24,13 @@ const Wilayah = () => {
         nama : nama
     }
 
+    useEffect(() => {
+        async function getData() {
+            const fetch = await axios.get('/api/dashboard/wilayah')
+            setData(fetch.data.get_data)
+        }
+        getData()
+    },[]) 
     
 
     async function add_wilayah(){
@@ -83,6 +91,18 @@ const Wilayah = () => {
                         <tr>
                             <td class="border px-4 py-2">1</td>
                             <td class="border px-4 py-2">Sukobumi</td>
+                            <td class="border px-4 py-2">
+                            {data != null ? (
+                            data.map((item,index) => (
+                                <tr className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 " key={item.id}>
+                                    <td>{index+1}</td>
+                                    <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nama}</td>
+                                </tr>
+                                )
+                                )
+                        ): null}
+                            </td>
+
                             <td className="border flex justify-center p-2 gap-3">
                                 <button type="" className="bg-cyan-400 px-2 py-1 rounded-md hover:bg-cyan-200 transition-all duration-300">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

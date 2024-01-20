@@ -7,6 +7,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from "react";
 
     
 export default function data_diri() {
@@ -22,6 +23,8 @@ export default function data_diri() {
     const [pekerjaan,setPekerjaan] = useState()
     const [pendidikan,setPendidikan] = useState()
     const [umur,setUmur] = useState()
+    const [data,setData] = useState()
+
   
     const sendData = {
       alamat : alamat,
@@ -35,7 +38,17 @@ export default function data_diri() {
       pendidikan : pendidikan,
       umur : umur,
     }   
-  
+
+    
+    useEffect(() => {
+        async function getData() {
+            const fetch = await axios.get('/api/dashboard/wilayah')
+            setData(fetch.data.get_data)
+            console.log(fetch)
+        }
+        getData()
+    },[]) 
+    
     async function data_diri(){
       const send = await axios.post("/api/survei/datadiri",sendData)
       console.log(send.data.id_kk)
@@ -130,8 +143,14 @@ export default function data_diri() {
                 <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="alamat" className="block text-sm font-semibold text-black uppercase mb-3">Alamat</label>
                 <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
-                    <option selected>Alamat</option>
-                    <option value="desa_winongan">desa winongan</option>
+                {data != null ? (
+                    data.map((item) => (
+                        <option key={item.id} value={item.id}>
+                            {item.name}
+                        </option>
+                    ))
+                    ) : null}
+
                 </select>
                 </span>
 
