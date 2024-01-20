@@ -25,6 +25,7 @@ const IbuHamil = () => {
 
     const sendData = {
         id : query,
+        id_kk : idk,
         a : a,
         b : b,
         c : c,
@@ -36,14 +37,14 @@ const IbuHamil = () => {
         i : i,
         j : j,
       }   
-
+      
+      console.log(sendData)
       function Sebelumnya(){
-        router.push(`/survei/data_pengunjung?id=${idk}`)
-    }
+          router.push(`/survei/data_pengunjung?id=${idk}`)
+        }
 
-      async function ibu_hamil(){
-        const send = await axios.post("/api/survei/kelompokKesehatan/IbuHamil",sendData)
-        console.log(send)
+        async function ibu_hamil(){
+            const send = await axios.post("/api/survei/kelompokKesehatan/IbuHamil",sendData)
         if (send.data.status === "success"){
             toast('✔️ berhasil upload data', {
                 position: "top-right",
@@ -270,7 +271,7 @@ const IbuHamil = () => {
                                         <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold  py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
                                     </div>
                                     <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                                        <button onClick={(e)=>{e.preventDefault(); ibu_hamil()}} className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SELANJUTNYA</button>
+                                        <button onClick={(e)=>{e.preventDefault(); ibu_hamil()}} type="submit" className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SUBMIT</button>
                                     </div>
                                 </div>
                             </form>
