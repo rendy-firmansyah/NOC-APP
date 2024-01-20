@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
         const success = await prisma.anggota_keluarga.update({
             where:{
-                id: Number(Data.id)
+                id: Number(Data.id_kk)
             },
             data:{
                 status : true
