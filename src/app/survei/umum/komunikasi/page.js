@@ -1,19 +1,69 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
+import { useRouter } from 'next/navigation';
+import { useSearchParams } from "next/navigation";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 
 export default function SurveiKomunikasi () {
-    const [value, setValue] = useState({
-        A : '',
-        B : '',
-    });
+    const router = useRouter()
+    const [a,setA] = useState()
+    const [b,setB] = useState()
+    const searchParams = useSearchParams();
+    const query = searchParams.get('id');
 
-    const handleValueChange = (question, selectedValue) => {
-        setValue((prevValues) => ({
-          ...prevValues,
-          [question]: selectedValue,
-        }));
-    };
+    const sendData = {
+        id : query,
+        a : a,
+        b : b,
+      }   
+
+      function Sebelumnya(){
+        router.push(`/survei/umum/politik_pemerintahan?id=${query}`)
+    }
+
+      async function komunikasi(){
+        const send = await axios.post("/api/survei/komunikasi",sendData)
+        console.log(send)
+        if (send.data.status === "success"){
+            toast('✔️ berhasil upload data', {
+                position: "top-right",
+                autoClose: 0.1,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                progress:1,
+                theme: "light",
+                });
+
+                router.push(`/survei/umum/pendidikan?id=${query}`)
+        } 
+        else{
+          toast('❌ gagal upload data', {
+              position: "top-right",
+              autoClose: 0.1,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              progress:1,
+              theme: "light",
+              });
+        }
+    }
+    
+    // const [value, setValue] = useState({
+    //     A : '',
+    //     B : '',
+    // });
+
+    // const handleValueChange = (question, selectedValue) => {
+    //     setValue((prevValues) => ({
+    //       ...prevValues,
+    //       [question]: selectedValue,
+    //     }));
+    // };
 
     return (
         <div className="relative my-[200px] flex items-center justify-center">
@@ -26,35 +76,31 @@ export default function SurveiKomunikasi () {
                         <div className="mb-3">
                             <label>A. Alat komunikasi yang paling sering digunakan keluarga:</label>
                             <div className="ms-5">
-                                <input type="radio" id="Telepon" value="Telepon" checked={value.A === 'Telepon'} onChange={() => handleValueChange('A','Telepon')}/><label htmlFor="Telepon">Telepon/HP</label>
+                                <input type="radio" id="Telepon" value="Telepon" name="alat_komunikasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Telepon">Telepon/HP</label>
                             </div>
                             <div className="ms-5">
-                                <input type="radio" id="TidakPunya" value="TidakPunya" checked={value.A === 'TidakPunya'} onChange={() => handleValueChange('A', 'TidakPunya')}/><label htmlFor="TidakPunya">Tidak punya alat komunikasi</label>
+                                <input type="radio" id="TidakPunya" value="TidakPunya" name="alat_komunikasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="TidakPunya">Tidak punya alat komunikasi</label>
                             </div>
                         </div>
                         <div>
                             <label>B. Sarana komunikasi di masyarakat:</label>
                             <div className="ms-5">
-                                <input type="radio" id="PengerasSuara" value="PengerasSuara" checked={value.B === 'PengerasSuara'} onChange={() => handleValueChange('B','PengerasSuara')}/><label htmlFor="PengerasSuara">Pengeras suara masjid</label>
+                                <input type="radio" id="PengerasSuara" value="PengerasSuara" name="sarana_komunikasi" onChange={(e)=> setB(e.target.value)}/><label htmlFor="PengerasSuara">Pengeras suara masjid</label>
                             </div>
                             <div className="ms-5">
-                                <input type="radio" id="Mading" value="Mading" checked={value.B === 'Mading'} onChange={() => handleValueChange('B', 'Mading')}/><label htmlFor="Mading">Mading</label>
+                                <input type="radio" id="Mading" value="Mading" name="sarana_komunikasi" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Mading">Mading</label>
                             </div>
                             <div className="ms-5">
-                                <input type="radio" id="BalaiRW" value="BalaiRW" checked={value.B === 'BalaiRW'} onChange={() => handleValueChange('B', 'BalaiRW')}/><label htmlFor="BalaiRW">Balai RW</label>
+                                <input type="radio" id="BalaiRW" value="BalaiRW" name="sarana_komunikasi" onChange={(e)=> setB(e.target.value)}/><label htmlFor="BalaiRW">Balai RW</label>
                             </div>
                             <div className="ms-5">
-                                <input type="radio" id="MediaKomunikasi" value="MediaKomunikasi" checked={value.B === 'MediaKomunikasi'} onChange={() => handleValueChange('B', 'MediaKomunikasi')}/><label htmlFor="MediaKomunikasi">Media Komunikasi (whatsapp, dll)</label>
+                                <input type="radio" id="MediaKomunikasi" value="MediaKomunikasi" name="sarana_komunikasi" onChange={(e)=> setB(e.target.value)}/><label htmlFor="MediaKomunikasi">Media Komunikasi (whatsapp, dll)</label>
                             </div>
                         </div>
                     </div>
                     <div className="my-[20px] flex justify-center button-group">
-                        <Link href="/survei/umum/politik_pemerintahan">
-                            <button className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px]">SELANJUTNYA</button>
-                        </Link>
-                        <Link href="/survei/umum/pendidikan">
-                            <button className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px] ms-3">SELANJUTNYA</button>
-                        </Link>
+                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px]">SELANJUTNYA</button>
+                            <button onClick={(e)=>{e.preventDefault(); komunikasi()}} className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px] ms-3">SELANJUTNYA</button>
                     </div>
                 </div>
             </div>
