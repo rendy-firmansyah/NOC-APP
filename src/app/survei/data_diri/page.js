@@ -66,13 +66,13 @@ export default function data_diri() {
     }
 
     return(
-        <div className="relative mt-32 mb-20 grid min-h-screen place-items-center">
+        <div className="relative my-[150px] min-h-screen grid place-items-center">
 
          <ToastContainer />
-        <div className="w-11/12 p-12 bg-slate-400 sm:w-8/12 md:w-1/2 lg:w-5/12">
+        <div className="w-11/12 px-4 py-10 bg-white shadow-xl border-2 border-bg-btn-orangeHover sm:w-8/12 md:w-8/2 lg:w-8/12">
             <h1 className="text-xl font-semibold flex justify-center">DATA DIRI</h1>
             <h1 className="font-semibold mt-3">NOC Survey</h1>
-            <div className="line w-full h-[5px] bg-yellow-500 my-2 mb-3"></div>
+            <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
             <form className="mt-6" onSubmit={(e)=>{e.preventDefault(); data_diri()}}>
 
             <label for="no_kk" className="block mt-2 text-sm font-semibold text-black uppercase">No KK</label>
@@ -81,13 +81,13 @@ export default function data_diri() {
             <label for="nama" className="block mt-5 text-sm font-semibold text-black uppercase">Nama Lengkap</label>
             <input onChange={(e)=> setNama(e.target.value)} id="nama" type="nama" name="nama" placeholder="masukan nama lengkap" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
             
-            <div className="flex justify-between gap-3 mt-5">
-                <span className="w-1/2">
+            <div className="grid grid-cols-12 mt-5">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                     <label for="NIK" className="block text-sm font-semibold text-black uppercase">NIK</label>
                     <input onChange={(e)=> setNik(e.target.value)} id="NIK" type="text" name="NIK" placeholder="35xxxxxxxxxxxxxx" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                 </span>
 
-                <span className="w-1/2">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 ms-0 mt-5 xl:ms-2 lg:ms-2 md:ms-2 xl:mt-0 lg:mt-0 md:mt-0">
                     <label for="hubungan_kk" className="block text-sm font-semibold text-black uppercase mb-3">Hubungan Dengan KK</label>
                     <select onChange={(e)=> setHubungan(e.target.value)} id="hubungan_kk" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         <option selected>Pilih hubungan_kk</option>
@@ -98,13 +98,13 @@ export default function data_diri() {
                     </select>
                 </span>
             </div>
-            <div className="flex justify-between gap-3 mt-5">
-                <span className="w-1/2">
-                <label for="umur" className="block text-sm font-semibold text-black uppercase">umur</label>
-                <input onChange={(e)=> setUmur(e.target.value)} id="umur" type="text" name="umur" placeholder="25 tahun" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
+            <div className="grid grid-cols-12 gap-3 mt-5">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
+                    <label for="umur" className="block text-sm font-semibold text-black uppercase">umur</label>
+                    <input onChange={(e)=> setUmur(e.target.value)} id="umur" type="text" name="umur" placeholder="25 tahun" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                 </span>
 
-                <span className="w-1/2">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 mt-2 xl:mt-0 lg:mt-0 md:mt-0">
                     <label for="L/P" className="block text-sm font-semibold text-black uppercase mb-3">L/P</label>
                     <select onChange={(e)=> setJenis_Kelamin(e.target.value)} id="L/P" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         <option selected>Pilih L/P</option>
@@ -114,20 +114,20 @@ export default function data_diri() {
                 </span>
             </div>
 
-            <div className="flex justify-between gap-3 mt-5">
-                <span className="w-1/2">
+            <div className="grid grid-cols-12 gap-3 mt-5">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="Pendidikan" className="block text-sm font-semibold text-black uppercase">Pendidikan</label>
                 <input onChange={(e)=> setPendidikan(e.target.value)} id="Pendidikan" type="text" name="Pendidikan" placeholder="SD/SMP/SMA/D3/S1/Tidak sekolah" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                 </span>
 
-                <span className="w-1/2">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 mt-1 xl:mt-0 lg:mt-0 md:mt-0">
                     <label for="pekerjaan" className="block text-sm font-semibold text-black uppercase ">Pekerjaan</label>
                     <input onChange={(e)=> setPekerjaan(e.target.value)} id="Pekerjaan" type="text" name="Pekerjaan" placeholder="Pns/Wiraswasta/Belum Bekerja" className="block w-full p-3 mt-2 text-gray-700 bg-gray-200 appearance-none focus:outline-none focus:bg-gray-300 focus:shadow-inner" required />
                 </span>
             </div>
 
-            <div className="flex justify-between gap-3 mt-5">
-                <span className="w-1/2">
+            <div className="grid grid-cols-12 gap-3 mt-5">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="alamat" className="block text-sm font-semibold text-black uppercase mb-3">Alamat</label>
                 <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                     <option selected>Alamat</option>
@@ -135,7 +135,7 @@ export default function data_diri() {
                 </select>
                 </span>
 
-                <span className="w-1/2">
+                <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 mt-2 xl:mt-0 lg:mt-0 md:mt-0">
                     <label for="sk" className="block text-sm font-semibold text-black uppercase mb-3">Status Kesehatan Kelompok</label>
                     <select onChange={(e)=> setKelompok_kesehatan(e.target.value)} id="sk" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         <option selected>Pilih Status Kesehatan Kelompok</option>
@@ -151,7 +151,7 @@ export default function data_diri() {
             </div>
 
 
-                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-white shadow-lg focus:outline-none">
+                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] shadow-lg focus:outline-none">
 
                     Selanjutnya
                 </button>

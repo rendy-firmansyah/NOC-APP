@@ -67,10 +67,11 @@ export default function SurveiTransportasi () {
 
     return (
         <div className="relative my-[200px] flex items-center justify-center">
-            <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] xl:h-[540px] lg:h-[540px] h-[600px] w-[480px] py-[30px] px-[50px] bg-white shadow-xl border-2 border-bg-btn-orangeHover flex items-center">
-                <div className="xl:w-[880px] lg:w-[880px] md:w-[780px] w-[375px]">
-                    <h1 className="text-center text-[32px] font-bold">SURVEI NOC</h1>
-                    <h1 className="text-[20px] font-medium mt-3">IV. TRANSPORTASI DAN KEAMANAN</h1>
+            <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] xl:h-[540px] lg:h-[540px] md:h-[540px] h-[670px] w-[400px] py-[30px] px-[20px] bg-white shadow-xl border-2 border-bg-btn-orangeHover flex items-center">
+                <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]">
+                    <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
+                    <h1 className="text-[18px] font-medium mt-3">IV. TRANSPORTASI DAN KEAMANAN</h1>
+                    <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
                     <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
                     <div className="pertanyaan">
                         <div className="mb-3">
@@ -98,9 +99,13 @@ export default function SurveiTransportasi () {
                             </div>
                         </div>
                     </div>
-                    <div className="my-[20px] flex justify-center button-group">
-                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px]">SEBELUMNYA</button>
-                            <button onClick={(e)=>{e.preventDefault(); transportasi_keamanan()}}  className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[175px] lg:px-[175px] px-[50px] ms-3">SELANJUTNYA</button>
+                    <div className="my-[20px] grid grid-cols-12">
+                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
+                        </div>
+                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                            <button onClick={(e)=>{e.preventDefault(); transportasi_keamanan()}}  className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SELANJUTNYA</button>
+                        </div>
                     </div>
                 </div>
             </div>
