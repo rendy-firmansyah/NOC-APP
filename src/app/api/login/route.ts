@@ -13,7 +13,8 @@ export async function POST(request: Request) {
         message: "pasword atau user salah!"})
     }
     return NextResponse.json({
-      success : "success"
+      success : "success",
+      token : "NOCAPP"
     });
   }
   
