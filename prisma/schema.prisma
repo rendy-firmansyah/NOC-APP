@@ -34,6 +34,7 @@ model anggota_keluarga {
   pendidikan          String
   pekerjaan           String
   kelompok_kesehatan  String
+  status              Boolean @default(false)
   no_kk_id            Int 
   kartu_keluarga      kartu_keluarga @relation(fields: [no_kk_id], references: [id])
   kelompok_sd         Anak_sekolah_sd[]
