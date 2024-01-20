@@ -27,7 +27,7 @@ export default function SurveiRekreasi () {
     }
 
       async function rekreasi(){
-        const send = await axios.post("/api/survei/pendidikan",sendData)
+        const send = await axios.post("/api/survei/rekreasi",sendData)
         console.log(send)
         if (send.data.status === "success"){
             toast('✔️ berhasil upload data', {
