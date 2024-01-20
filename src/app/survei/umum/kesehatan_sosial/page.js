@@ -61,94 +61,100 @@ export default function SurveiKesehatanSosial () {
 
     return (
         <div className="relative my-[200px] flex items-center justify-center">
-            <div className="xl:w-[980px] lg:w-[980px] xl:h-[900px] lg:h-[900px] h-[960px] w-[480px] py-[30px] px-[50px] bg-slate-400">
-                <h1 className="text-center text-[24px] font-bold">SURVEI NOC</h1>
-                <h1 className="font-medium mt-3">II. PELAYANAN KESEHATAN DAN SOSIAL</h1>
-                <div className="line w-full h-[5px] bg-yellow-500 my-2 mb-3"></div>
-                <div className="pertanyaan">
-                    <div>
-                        <label>A. Fasilitas kesehatan yang ada di masyarakat (bisa multipel pilihannya):</label>
-                        <div className="ms-5">
-                            <input type="radio" id="Posyandu/Posbindu" value="Posyandu/Posbindu" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Posyandu/Posbindu">Posyandu/Posbindu</label>
+            <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] xl:h-[960px] lg:h-[960px] md:h-[960px] h-[1160px] w-[400px] py-[30px] px-[20px] bg-white shadow-xl border-2 border-bg-btn-orangeHover flex items-center">
+                <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]">
+                    <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
+                    <h1 className="text-[18px] font-medium mt-3">II. PELAYANAN KESEHATAN DAN SOSIAL</h1>
+                    <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
+                    <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
+                    <div className="pertanyaan">
+                        <div className="mb-3">
+                            <label>A. Fasilitas kesehatan yang ada di masyarakat (bisa multipel pilihannya):</label>
+                            <div className="ms-5">
+                                <input type="radio" id="Posyandu/Posbindu" value="Posyandu/Posbindu" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Posyandu/Posbindu">Posyandu/Posbindu</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="DokterPraktik" value="DokterPraktik" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="DokterPraktik">Dokter Praktik</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Puskesmas" value="Puskesmas" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Puskesmas">Puskesmas</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Perawat" value="Perawat" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Perawat">Perawat</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="RumahSakit" value="RumahSakit" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="RumahSakit">Rumah Sakit</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Bidan" value="Bidan" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Bidan">Bidan</label>
+                            </div>
                         </div>
-                        <div className="ms-5">
-                            <input type="radio" id="DokterPraktik" value="DokterPraktik" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="DokterPraktik">Dokter Praktik</label>
+                        <div className="mb-3">
+                            <label>B. Fasilitas pelayanan kesehatan yang paling sering digunakan keluarga:</label>
+                            <div className="ms-5">
+                                <input type="radio" id="B-Posyandu/Posbindu" value="Posyandu/Posbindu" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Posyandu/Posbindu">Posyandu/Posbindu</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="B-DokterPraktik" value="DokterPraktik" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-DokterPraktik">Dokter Praktik</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="B-Puskesmas" value="Puskesmas" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Puskesmas">Puskesmas</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="B-Perawat" value="Perawat" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Perawat">Perawat</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="B-RumahSakit" value="RumahSakit" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-RumahSakit">Rumah Sakit</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="B-Bidan" value="Bidan" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Bidan">Bidan</label>
+                            </div>
                         </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Puskesmas" value="Puskesmas" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Puskesmas">Puskesmas</label>
+                        <div className="mb-3">
+                            <label>C. Berapakah jarak fasilitas kesehatan terdekat dengan rumah:</label>
+                            <div className="ms-5">
+                                <input type="radio" id="Kurangdari1km" value="Kurangdari1km" name="jarak_fasilitas" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Kurangdari1km">Kurang dari 1km</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Lebihdari1km" value="Lebihdari1km" name="jarak_fasilitas" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Lebihdari1km">Lebih dari 1km</label>
+                            </div>
                         </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Perawat" value="Perawat" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Perawat">Perawat</label>
+                        <div className="mb-3">
+                            <label>D. Kebiasaan keluarga sebelum ke pelayanan kesehatan:</label>
+                            <div className="ms-5">
+                                <input type="radio" id="BeliObatBebas" value="BeliObatBebas" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="BeliObatBebas">Beli Obat Bebas</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Jamu" value="Jamu" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="Jamu">Jamu</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="BegitusakitlangsungkeFaskes" value="BegitusakitlangsungkeFaskes" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="BegitusakitlangsungkeFaskes">Begitu sakit langsung ke Faskes</label>
+                            </div>
                         </div>
-                        <div className="ms-5">
-                            <input type="radio" id="RumahSakit" value="RumahSakit" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="RumahSakit">Rumah Sakit</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Bidan" value="Bidan" name="fasilitas_kesehatan" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Bidan">Bidan</label>
+                        <div>
+                            <label>E. Sumber pendanaan kesehatan keluarga:</label>
+                            <div className="ms-5">
+                                <input type="radio" id="BPJS" value="BPJS" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="BPJS">BPJS (Jamkesmas, Askes, dll)</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="DanaSehat" value="DanaSehat" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="DanaSehat">Dana Sehat</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="TidakAda" value="TidakAda" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="TidakAda">Tidak Ada</label>
+                            </div>
+                            <div className="ms-5">
+                                <input type="radio" id="Tabungan" value="Tabungan" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="Tabungan">Tabungan</label>
+                            </div>
                         </div>
                     </div>
-                    <div>
-                        <label>B. Fasilitas pelayanan kesehatan yang paling sering digunakan keluarga:</label>
-                        <div className="ms-5">
-                            <input type="radio" id="B-Posyandu/Posbindu" value="Posyandu/Posbindu" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Posyandu/Posbindu">Posyandu/Posbindu</label>
+                    <div className="my-[20px] grid grid-cols-12">
+                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold  py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
                         </div>
-                        <div className="ms-5">
-                            <input type="radio" id="B-DokterPraktik" value="DokterPraktik" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-DokterPraktik">Dokter Praktik</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="B-Puskesmas" value="Puskesmas" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Puskesmas">Puskesmas</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="B-Perawat" value="Perawat" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Perawat">Perawat</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="B-RumahSakit" value="RumahSakit" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-RumahSakit">Rumah Sakit</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="B-Bidan" value="Bidan" name="fasilitas_pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="B-Bidan">Bidan</label>
+                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                            <button onClick={(e)=>{e.preventDefault(); kesehatan_sosial()}} className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SELANJUTNYA</button>
                         </div>
                     </div>
-                    <div>
-                        <label>C. Berapakah jarak fasilitas kesehatan terdekat dengan rumah:</label>
-                        <div className="ms-5">
-                            <input type="radio" id="Kurangdari1km" value="Kurangdari1km" name="jarak_fasilitas" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Kurangdari1km">Kurang dari 1km</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Lebihdari1km" value="Lebihdari1km" name="jarak_fasilitas" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Lebihdari1km">Lebih dari 1km</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label>D. Kebiasaan keluarga sebelum ke pelayanan kesehatan:</label>
-                        <div className="ms-5">
-                            <input type="radio" id="BeliObatBebas" value="BeliObatBebas" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="BeliObatBebas">Beli Obat Bebas</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Jamu" value="Jamu" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="Jamu">Jamu</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="BegitusakitlangsungkeFaskes" value="BegitusakitlangsungkeFaskes" name="kebiasaan" onChange={(e)=> setD(e.target.value)}/><label htmlFor="BegitusakitlangsungkeFaskes">Begitu sakit langsung ke Faskes</label>
-                        </div>
-                    </div>
-                    <div>
-                        <label>E. Sumber pendanaan kesehatan keluarga:</label>
-                        <div className="ms-5">
-                            <input type="radio" id="BPJS" value="BPJS" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="BPJS">BPJS (Jamkesmas, Askes, dll)</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="DanaSehat" value="DanaSehat" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="DanaSehat">Dana Sehat</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="TidakAda" value="TidakAda" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="TidakAda">Tidak Ada</label>
-                        </div>
-                        <div className="ms-5">
-                            <input type="radio" id="Tabungan" value="Tabungan" name="sumber_dana" onChange={(e)=> setE(e.target.value)}/><label htmlFor="Tabungan">Tabungan</label>
-                        </div>
-                    </div>
-                </div>
-                <div className="my-[20px] flex justify-center button-group">
-                        <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-white py-4 xl:px-[175px] lg:px-[175px] px-[50px]">Sebelumnya</button>
-                        <button onClick={(e)=>{e.preventDefault(); kesehatan_sosial()}} className="bg-white py-4 xl:px-[175px] lg:px-[175px] px-[50px] ms-3">Selanjutnya</button>
-
                 </div>
             </div>
         </div>

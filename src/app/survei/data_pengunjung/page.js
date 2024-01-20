@@ -35,16 +35,14 @@ export default function data_pengunjung() {
     console.log(data)
     return (
 
-        <>
-        <div className="mx-16 mt-32 pt-1 pb-10 mb-0 bg-gray-300 xs:w-full">
+        <div className="my-[200px]">
+        <div className="mx-5 pt-1 pb-10 bg-slate-100 shadow-xl border-2 border-bg-btn-orangeHover  xs:w-full">
             <div className="w-full xs:w-full mb-12 px-4 mt-24 mx-auto">
-            <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded">
+            <h3 className="sm:mb-2 font-bold text-2xl text-blueGray-700 text-center uppercase mb-8">Data Anggota Keluarga</h3>
+            <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded">
 
                 <div className="rounded-t mb-0 px-4 py-3 border-0">
                 <div className="flex flex-col sm:flex-row items-center">
-                    <div className="relative w-full px-4 max-w-full flex-grow flex-1">
-                        <h3 className="sm:mb-2 font-semibold text-base text-blueGray-700">Data Anggota Keluarga</h3>
-                    </div>
                     <div className="sm:mt-1 relative w-full px-4 max-w-full flex-grow flex-1 text-right">
                         <button onClick={(e)=>{e.preventDefault(); kirimdata()}} className="sm:mt-2 bg-indigo-500 text-white active:bg-indigo-600 text-xs font-bold uppercase px-3 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button">Tambah Anggota</button>
                     </div>
@@ -111,13 +109,13 @@ export default function data_pengunjung() {
             </div>
             </div>
         </div>
-        <div className="flex justify-end me-16">
+        <div className="flex justify-end mx-5">
 
-            <button type="submit" onClick={(e)=>{e.preventDefault(); kirimdata1()}} className="w-52 py-5 mb-5 mt-10 font-extrabold content-end bg-gray-300">
+            <button type="submit" onClick={(e)=>{e.preventDefault(); kirimdata1()}} className="w-52 py-5 mb-5 mt-10 font-extrabold content-end bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px]">
                 Isi survey Umum
             </button>
 
         </div>
-      </>
+      </div>
     )
 }
