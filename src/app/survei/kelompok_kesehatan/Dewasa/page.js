@@ -126,11 +126,11 @@ const Dewasa = () => {
                                     <p>d. Jika tidak, alasannya?</p>
                                     <div class="mt-2 space-y-2">
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="tidak_tahu" value="tidak_tahu" name="rutin_posbindu" onChange={(e)=> setD(e.target.value)}/>
+                                            <input type="radio" id="tidak_tahu" value="tidak_tahu" name="alasan" onChange={(e)=> setD(e.target.value)}/>
                                             <label for="tidak_tahu" class="block text-sm font-medium leading-6 text-gray-900">Tidak tahu</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="bekerja" value="bekerja" name="rutin_posbindu" onChange={(e)=> setC(e.target.value)}/>
+                                            <input type="radio" id="bekerja" value="bekerja" name="alasan" onChange={(e)=> setC(e.target.value)}/>
                                             <label for="bekerja" class="block text-sm font-medium leading-6 text-gray-900">Bekerja</label>
                                         </div>
                                     </div>

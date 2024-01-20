@@ -71,7 +71,7 @@ const IbuHamil = () => {
     }
 
     return(
-        <section className="lg:h-screen">
+        <section className="">
             <div className="flex justify-center pb-10">
                 <div className="mt-[120px] card lg:w-[900px] md:w-[600px] w-[350px] px-6 md:px-14 lg:px-32 py-5 md:py-14 bg-gray-400 rounded-lg">
                     <h1 className="font-bold text-xl lg:text-2xl text-center">STATUS KESEHATAN KELOMPOK</h1>
