@@ -5,6 +5,7 @@ export async function POST(request: Request) {
     const Data = await request.json()
     try{
 
+
         if(!Data.a || !Data.b || !Data.c || !Data.d || !Data.e || !Data.f || !Data.g || !Data.h || !Data.i || !Data.j ||!Data.id){
             return NextResponse.json({
                 status : "failed",
