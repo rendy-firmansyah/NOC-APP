@@ -1,6 +1,19 @@
+'use client'
 import React from "react";
+import nookies from 'nookies'
+import { useEffect } from "react";
+import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
+    const router = useRouter()
+    useEffect(()=>{
+        const cookies = nookies.get()
+        console.log(!cookies.token )
+        if(!cookies.token){
+            router.push("/login")
+        }
+    },[])
+    
     return (
         <>
             <section className="w-full h-auto lg:h-auto">

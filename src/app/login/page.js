@@ -1,10 +1,12 @@
 'use client'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import nookies from "nookies"
+
 
 const Login = () => {
   const router = useRouter()
@@ -20,7 +22,17 @@ const Login = () => {
     const send = await axios.post("/api/login",sendData)
     console.log(send.data.success)
     if (send.data.success === "success"){
-      router.push('/api')
+      nookies.set(null,'token',send.data.token)
+      toast('✅ Success Login', {
+        position: "top-right",
+        autoClose: 0.1,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress:1,
+        theme: "light",
+        });
+      router.push('/Dashboard')
     } 
     else{
       toast('❌ failed login', {
@@ -34,6 +46,13 @@ const Login = () => {
           });
     }
   }
+
+  useEffect(()=>{
+      const cookies = nookies.get()
+      if(cookies.token){
+          router.push("/Dashboard")
+      }
+  },[])
 
   return (
     <>

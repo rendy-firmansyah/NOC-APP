@@ -28,6 +28,15 @@ export async function POST(request: Request) {
             }
         })
 
+        const success = await prisma.anggota_keluarga.update({
+            where:{
+                id: Number(Data.id)
+            },
+            data:{
+                status : true
+            }
+        })
+
         if(!upForm){
             return NextResponse.json({
                 status : "failed",

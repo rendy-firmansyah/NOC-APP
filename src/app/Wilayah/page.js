@@ -1,6 +1,19 @@
+'use client'
 import Link from "next/link";
+import { useRouter } from 'next/navigation'
+import { useEffect } from "react";
+import nookies from 'nookies'
 
 const Wilayah = () => {
+    const router = useRouter()
+
+    useEffect(()=>{
+        const cookies = nookies.get()
+        if(!cookies.token){
+            router.push("/login")
+        }
+    },[])
+  
     return (
         <section className="w-full h-auto lg:h-auto">
             <div className="flex justify-between pt-28 px-10">
