@@ -72,7 +72,7 @@ export default function data_pengunjung() {
 
                     <tbody>
                         {data != null ? (
-                            data.map((item,index) => (
+                            data.map((item) => (
                                 <tr className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 " key={item.id}>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nama}</td>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nik}</td>
@@ -113,11 +113,11 @@ export default function data_pengunjung() {
         </div>
         <div className="flex justify-end me-16">
 
-            <button type="submit" onClick={(e)=>{e.preventDefault(); kirimdata1()}} className="w-52 py-3 mt-10 font-extrabold content-end bg-gray-300">
+            <button type="submit" onClick={(e)=>{e.preventDefault(); kirimdata1()}} className="w-52 py-5 mb-5 mt-10 font-extrabold content-end bg-gray-300">
                 Isi survey Umum
             </button>
 
         </div>
-        </div>
+      </>
     )
 }

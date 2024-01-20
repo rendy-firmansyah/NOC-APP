@@ -44,7 +44,7 @@ export default function SurveiKesehatanSosial () {
                 theme: "light",
                 });
 
-                router.push(`/survei/umum/transportasi_keamanan?id=${query}`)
+                router.push(`/survei/umum/ekonomi?id=${query}`)
         } 
         else{
           toast('❌ gagal upload data', {
