@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const Data = await request.json()
     try{
 
-        if(!Data.a || !Data.b || !Data.c || !Data.d || !Data.e || !Data.f || !Data.g || !Data.h || !Data.i || !Data.j ||!Data.id){
+        if(!Data.a || !Data.b || !Data.c || !Data.d || !Data.e || !Data.f || !Data.g || !Data.h || !Data.i || !Data.j ||!Data.id || !Data.id_kk){
             return NextResponse.json({
                 status : "failed",
                 reason : "salah satu data kosong / data tidak diisi"
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
         const success = await prisma.anggota_keluarga.update({
             where:{
-                id: Number(Data.id)
+                id: Number(Data.id_kk)
             },
             data:{
                 status : true
