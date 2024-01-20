@@ -5,7 +5,7 @@ export async function POST(request: Request) {
     const Data = await request.json()
     try{
 
-        if(!Data.a || !Data.b || !Data.c || !Data.d || !Data.e || !Data.f || !Data.g || !Data.h || !Data.i || !Data.j || !Data.k ||!Data.id){
+        if(!Data.a || !Data.b || !Data.c || !Data.d || !Data.e || !Data.f || !Data.g || !Data.h || !Data.i || !Data.j || !Data.id){
             return NextResponse.json({
                 status : "failed",
                 reason : "salah satu data kosong / data tidak diisi"
@@ -24,7 +24,6 @@ export async function POST(request: Request) {
                 H : Data.h,
                 I : Data.i,
                 J : Data.j,
-                K : Data.k,
                 id_keluarga : Number(Data.id)
             }
         })

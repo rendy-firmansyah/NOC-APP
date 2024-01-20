@@ -165,7 +165,6 @@ model kelompok_bumil{
   H                     String
   I                     String
   J                     String
-  K                     String
   id_keluarga           Int
   anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
 }
