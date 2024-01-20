@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       const regist_kk = await prisma.kartu_keluarga.create({
         data:{
           no_kk : Data.no_kk,
-          alamat : Data.alamat
+          alamat : Number(Data.alamat)
         }
       })
       if(!regist_kk){

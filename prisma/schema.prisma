@@ -13,7 +13,8 @@ datasource db {
 model kartu_keluarga {
   id          Int @id@default(autoincrement())
   no_kk       String @unique
-  alamat      String
+  alamat      Int
+  wilayah             wilayah @relation(fields: [alamat],references: [id])
   lingkungan          lingkungan[]
   pelayanan_kesehatan pelayanan_kesehatan[] 
   ekonomi             ekonomi[]
@@ -137,7 +138,11 @@ model kelompok_balita{
   D                     String
   E                     String
   F                     String
-  G                     String
+  G1                    String
+  G2                    String
+  G3                    String
+  G4                    String
+  G5                    String
   H                     String
   I                     String
   J                     String
@@ -200,4 +205,10 @@ model kelompok_lansia{
   G                     String
   id_keluarga           Int
   anggota_keluarga      anggota_keluarga @relation(fields: [id_keluarga],references: [id])  
+}
+
+model wilayah {
+  id            Int @id @default(autoincrement())
+  nama          String
+  kartu_keluarga kartu_keluarga[]
 }
