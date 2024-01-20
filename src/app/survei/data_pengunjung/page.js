@@ -74,12 +74,48 @@ export default function data_pengunjung() {
                                 <tr className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 " key={item.id}>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nama}</td>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nik}</td>
-                                <td className="xs:table-cell font-semibold border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">Isi Survey</td>
+                                <td className="xs:table-cell font-semibold border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                                    {item.kelompok_kesehatan === "Ibu_hamil" ? (
+                                            <button onClick={()=>router.push(`/survei/kelompok_kesehatan/IbuHamil?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                                Isi Survey
+                                            </button>
+                                    ) : item.kelompok_kesehatan === "Ibu_menyusui" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/IbuMenyusui?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ) : item.kelompok_kesehatan === "Balita" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/Balita?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ): item.kelompok_kesehatan === "Anak_sd" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/AnakSekolah?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ): item.kelompok_kesehatan === "Remaja" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/Remaja?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ): item.kelompok_kesehatan === "Dewasa" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/Dewasa?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ): item.kelompok_kesehatan === "Lansia" ? (
+                                        <button onClick={()=>router.push(`/survei/kelompok_kesehatan/UsiaLanjut?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                            Isi Survey
+                                        </button>
+                                    ): null}
+                                </td>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-red-300 text-red-950 rounded-xl">
-                                Belum Selesai
-                            </button>
-                        </td>
+                                {item.status === true ? (
+                                    <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-green-300 text-green-950 rounded-xl">
+                                        Selesai
+                                    </button>
+                                ) : (
+                                    <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-red-300 text-red-950 rounded-xl">
+                                        Belum Selesai
+                                    </button>
+                                )}
+                                </td>
                                 </tr>
                                 )
                                 )

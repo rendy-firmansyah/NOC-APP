@@ -124,13 +124,13 @@ export default function add_data_diri() {
                     <label for="sk" className="block text-sm font-semibold text-black uppercase mb-3">Status Kesehatan Kelompok</label>
                     <select onChange={(e)=> setKelompok_kesehatan(e.target.value)} id="sk" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         <option selected>Pilih Status Kesehatan Kelompok</option>
-                        <option value="ibu_hamil">Ibu Hamil</option>
-                        <option value="ibu_menyusui">Ibu Menyusui</option>
-                        <option value="balita">Balita</option>
-                        <option value="anak_sd">Anakk SD (5-12 tahun)</option>
-                        <option value="remaja">Remaja (12-18 tahun)</option>
+                        <option value="Ibu_hamil">Ibu Hamil</option>
+                        <option value="Ibu_menyusui">Ibu Menyusui</option>
+                        <option value="Balita">Balita</option>
+                        <option value="Anak_sd">Anakk SD (5-12 tahun)</option>
+                        <option value="Remaja">Remaja (12-18 tahun)</option>
                         <option value="Dewasa">Dewasa (19-54 Tahun)</option>
-                        <option value="lansia">Usia Lanjut (lansia)</option>
+                        <option value="Lansia">Usia Lanjut (lansia)</option>
                     </select>
                 </span>
             </div>
