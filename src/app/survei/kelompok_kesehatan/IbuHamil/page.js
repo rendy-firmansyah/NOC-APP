@@ -24,8 +24,8 @@ const IbuHamil = () => {
     const idk = searchParams.get('idk');
 
     const sendData = {
-        id : query,
-        id_kk : idk,
+        id : idk,
+        id_kk : query,
         a : a,
         b : b,
         c : c,
@@ -45,6 +45,7 @@ const IbuHamil = () => {
 
         async function ibu_hamil(){
             const send = await axios.post("/api/survei/kelompokKesehatan/IbuHamil",sendData)
+            console.log(send)
         if (send.data.status === "success"){
             toast('✔️ berhasil upload data', {
                 position: "top-right",

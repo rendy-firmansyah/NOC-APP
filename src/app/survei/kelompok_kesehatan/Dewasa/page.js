@@ -24,8 +24,8 @@ const Dewasa = () => {
         
     async function dewasa(){
             const sendData = {
-                id : query,
-                id_kk : idk,
+                id : id,
+                id_kk : query,
                 a : a,
                 b : b,
                 c : c,
