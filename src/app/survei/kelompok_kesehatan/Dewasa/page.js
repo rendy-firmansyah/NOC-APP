@@ -17,21 +17,22 @@ const Dewasa = () => {
     const query = searchParams.get('id');
     const idk = searchParams.get('idk');
 
-    const sendData = {
-        id : query,
-        a : a,
-        b : b,
-        c : c,
-        d : d,
-      }   
-
-      function Sebelumnya(){
-        router.push(`/survei/data_pengunjung?id=${idk}`)
-    }
-
-      async function dewasa(){
-        const send = await axios.post("/api/survei/kelompokKesehatan/dewasa",sendData)
-        console.log(send)
+    
+    function Sebelumnya(){
+          router.push(`/survei/data_pengunjung?id=${idk}`)
+        }
+        
+    async function dewasa(){
+            const sendData = {
+                id : query,
+                id_kk : idk,
+                a : a,
+                b : b,
+                c : c,
+                d : d,
+              }   
+            const send = await axios.post("/api/survei/kelompokKesehatan/dewasa",sendData)
+            console.log(sendData)
         if (send.data.status === "success"){
             toast('✔️ berhasil upload data', {
                 position: "top-right",
@@ -60,6 +61,7 @@ const Dewasa = () => {
 
     return(
         <section className="lg:h-screen">
+            <ToastContainer />
             <div className="flex justify-center pb-10">
                 <div className="mt-[120px] card lg:w-[900px] md:w-[600px] w-[350px] px-6 md:px-14 lg:px-32 py-5 md:py-14 bg-gray-400 rounded-lg">
                     <h1 className="font-bold text-xl lg:text-2xl text-center">STATUS KESEHATAN KELOMPOK</h1>
@@ -74,15 +76,15 @@ const Dewasa = () => {
                                     <p>a. Penyakit yang diderita. Siapa yang menderita?</p>
                                     <div class="mt-2 space-y-2">
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="asthma" value="asthma" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
+                                        <input type="radio" id="asthma" value="asthma" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
                                             <label for="asthma" class="block text-sm font-medium leading-6 text-gray-900">Asthma</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="DM" value="DM" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
+                                        <input type="radio" id="DM" value="DM" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
                                             <label for="DM" class="block text-sm font-medium leading-6 text-gray-900">DM</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="TBC" value="TBC" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
+                                        <input type="radio" id="TBC" value="TBC" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
                                             <label for="TBC" class="block text-sm font-medium leading-6 text-gray-900">TBC</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
@@ -90,7 +92,7 @@ const Dewasa = () => {
                                             <label for="jantung" class="block text-sm font-medium leading-6 text-gray-900">Jantung</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="hipertensi" value="hipertensi" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
+                                        <input type="radio" id="hipertensi" value="hipertensi" name="penyakit" onChange={(e)=> setA(e.target.value)}/>
                                             <label for="hipertensi" class="block text-sm font-medium leading-6 text-gray-900">Hipertensi</label>
                                         </div>
                                     </div>
@@ -100,12 +102,12 @@ const Dewasa = () => {
                                     <p>b. Adakah Posbindu di daerah tempat tinggal saudara?</p>
                                     <div class="mt-2 space-y-2">
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="tidakada" value="tidak_ada" name="posbindu" onChange={(e)=> setB(e.target.value)}/>
+                                            <input type="radio" id="tidakada" value="tidakada" name="posbindu" onChange={(e)=> setB(e.target.value)}/>
                                             <label for="tidakada" class="block text-sm font-medium leading-6 text-gray-900">Tidak Ada</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
                                             <input type="radio" id="ada" value="ada" name="posbindu" onChange={(e)=> setB(e.target.value)}/>
-                                            <label for="ada" class="block text-sm font-medium leading-6 text-gray-900">Ada</label>
+                                            <label for="ada" class="block text-sm font-medium leading-6 text-gray-900">ada</label>
                                         </div>
                                     </div>
                                 </div>
@@ -130,7 +132,7 @@ const Dewasa = () => {
                                             <label for="tidak_tahu" class="block text-sm font-medium leading-6 text-gray-900">Tidak tahu</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="bekerja" value="bekerja" name="alasan" onChange={(e)=> setC(e.target.value)}/>
+                                            <input type="radio" id="bekerja" value="bekerja" name="alasan" onChange={(e)=> setD(e.target.value)}/>
                                             <label for="bekerja" class="block text-sm font-medium leading-6 text-gray-900">Bekerja</label>
                                         </div>
                                     </div>
