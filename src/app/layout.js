@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <div className='overflow-x-hidden'>
           {children}
         </div>
-        {/* {!disable.includes(pathname) && <Footer/>} */}
+        {!disable.includes(pathname) && <Footer/>}
       </body>
     </html>
   )

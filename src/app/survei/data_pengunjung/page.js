@@ -106,10 +106,16 @@ export default function data_pengunjung() {
                                     ): null}
                                 </td>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                            <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-red-300 text-red-950 rounded-xl">
-                                Belum Selesai
-                            </button>
-                        </td>
+                                {item.status === true ? (
+                                    <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-green-300 text-green-950 rounded-xl">
+                                        Selesai
+                                    </button>
+                                ) : (
+                                    <button type="submit" className="w-32 py-2 mx-auto font-extrabold bg-red-300 text-red-950 rounded-xl">
+                                        Belum Selesai
+                                    </button>
+                                )}
+                                </td>
                                 </tr>
                                 )
                                 )
