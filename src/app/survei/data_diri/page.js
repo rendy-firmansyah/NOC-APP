@@ -43,8 +43,8 @@ export default function data_diri() {
     useEffect(() => {
         async function getData() {
             const fetch = await axios.get('/api/dashboard/wilayah')
-            setData(fetch.data.get_data)
-            console.log(fetch)
+            setData(fetch.data.Data)
+            console.log(fetch.data.Data)
         }
         getData()
     },[]) 
@@ -142,11 +142,11 @@ export default function data_diri() {
             <div className="grid grid-cols-12 gap-3 mt-5">
                 <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="alamat" className="block text-sm font-semibold text-black uppercase mb-3">Alamat</label>
-                <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class=" bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                 {data != null ? (
-                    data.map((item) => (
+                    data.map((item,index) => (
                         <option key={item.id} value={item.id}>
-                            {item.name}
+                            {item.nama}
                         </option>
                     ))
                     ) : null}
