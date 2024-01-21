@@ -53,9 +53,6 @@ const NavbarAdmin = () => {
           }`}
           onClick={toggleNavbar}
         >
-          <Link href="/Dashboard">
-            <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Hasil Kuisioner Survey</li>
-          </Link>
           <Link href="/Wilayah">
             <li className="md:ml-8 md:text-md lg:text-xl md:my-0 my-7 text-black hover:text-gray-400 transition-all duration-300 cursor-pointer">Wilayah</li>
           </Link>

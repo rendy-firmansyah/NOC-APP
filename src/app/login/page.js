@@ -32,7 +32,7 @@ const Login = () => {
         progress:1,
         theme: "light",
         });
-      router.push('/Dashboard')
+      router.push('/wilayah')
     } 
     else{
       toast('❌ failed login', {
@@ -50,7 +50,7 @@ const Login = () => {
   useEffect(()=>{
       const cookies = nookies.get()
       if(cookies.token){
-          router.push("/Dashboard")
+          router.push("/Wilayah")
       }
   },[])
 
