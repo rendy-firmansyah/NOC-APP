@@ -21,8 +21,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {pathname === "/Dashboard" || pathname === "/Wilayah" ? <NavbarAdmin/> : !disable.includes(pathname) && <Navbar/>}
-        <div className='overflow-x-hidden'>
+        {pathname === "/Dashboard" || pathname === "/Wilayah" || pathname === "/Wilayah/Detail" ? <NavbarAdmin/> : !disable.includes(pathname) && <Navbar/>}
+        <div className='overflow-x-hidden overflow-y-hidden'>
           {children}
         </div>
         {!disable.includes(pathname) && <Footer/>}
