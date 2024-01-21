@@ -14,6 +14,13 @@ const DetailWilayah = () => {
     const [data,setData] = useState()
     const [chart,setChart] = useState()
     const [lingkungan,setLingkungan] = useState()
+    const [ekonomi,setEkonomi] = useState()
+    const [komunikasi,setKomunikasi] = useState()
+    const [pelayanan_kesehatan,setPelayananKesehatan] = useState()
+    const [pendidikan,setPendidikan] = useState()
+    const [politik_pemerintahan,setPolitikPemerintahan] = useState()
+    const [rekreasi,setRekreasi] = useState()
+    const [transportasi_keamanan,setTransportasiKeamanan] = useState()
 
     const req = {
         id_alamat : id_alamat
@@ -40,7 +47,51 @@ const DetailWilayah = () => {
             // console.log(fetch.data)
             setLingkungan(fetch.data)
         }
+        async function get_chart_ekonomi(){
+            const fetch = await axios.post("/api/dashboard/chart/Ekonomi",body)
+            // console.log(fetch.data)
+            setEkonomi(fetch.data)
+        }
+        
+        async function get_chart_komunikasi(){
+            const fetch = await axios.post("/api/dashboard/chart/Komunikasi",body)
+            // console.log(fetch.data)
+            setKomunikasi(fetch.data)
+        }
+
+        async function get_chart_pelayanan_kesehatan(){
+            const fetch = await axios.post("/api/dashboard/chart/Pelayanan",body)
+            // console.log(fetch.data)
+            setPelayananKesehatan(fetch.data)
+        }
+        async function get_chart_pendidikan(){
+            const fetch = await axios.post("/api/dashboard/chart/Pendidikan",body)
+            // console.log(fetch.data)
+            setPendidikan(fetch.data)
+        }
+        async function get_chart_politik_pemerintahan(){
+            const fetch = await axios.post("/api/dashboard/chart/Politik",body)
+            // console.log(fetch.data)
+            setPolitikPemerintahan(fetch.data)
+        }
+        async function get_chart_rekreasi(){
+            const fetch = await axios.post("/api/dashboard/chart/Rekreasi",body)
+            // console.log(fetch.data)
+            setRekreasi(fetch.data)
+        }
+        async function get_chart_transportasi_keamanan(){
+            const fetch = await axios.post("/api/dashboard/chart/TransportasiKeamanan",body)
+            // console.log(fetch.data)
+            setTransportasiKeamanan(fetch.data)
+        }
         get_chart_lingkungan()
+        get_chart_ekonomi()
+        get_chart_komunikasi()
+        get_chart_pelayanan_kesehatan()
+        get_chart_pendidikan()
+        get_chart_politik_pemerintahan()
+        get_chart_rekreasi()
+        get_chart_transportasi_keamanan()
         get_chart()
         get()
     },[])
@@ -142,8 +193,18 @@ const DetailWilayah = () => {
                                 {/* <BarChartComponent data={lingkungan} /> */}
                             </div>
                             {lingkungan != null ?(
-                                    <Lingkunganchart data={lingkungan} />
-                                ):null}
+                                <div>
+                                    <Lingkunganchart data={ekonomi} />
+                                    <Lingkunganchart data={pendidikan} />
+                                    <Lingkunganchart data={lingkungan}/>
+                                    <Lingkunganchart data={rekreasi} />
+                                    <Lingkunganchart data={transportasi_keamanan} />
+                                    <Lingkunganchart data={politik_pemerintahan} />
+                                    <Lingkunganchart data={pelayanan_kesehatan} />
+                                    <Lingkunganchart data={komunikasi} />
+                                </div>
+                                    
+                            ) : null}
                         </div>
                     </div>
                 </div>
