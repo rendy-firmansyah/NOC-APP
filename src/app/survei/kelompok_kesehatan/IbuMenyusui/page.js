@@ -61,13 +61,14 @@ const IbuMenyusui = () => {
     }
 
     return (
-        <section className="lg:h-screen">
-            <div className="flex justify-center pb-10">
-                <div className="mt-[120px] card lg:w-[900px] md:w-[600px] w-[350px] px-6 md:px-14 lg:px-32 py-5 md:py-14 bg-gray-400 rounded-lg">
+        <section className="mt-[150px] mb-[70px]">
+            <ToastContainer />
+            <div className="flex justify-center">
+                <div className="card lg:w-[900px] md:w-[600px] w-[350px] px-[30px] py-[60px] bg-white shadow-xl border-2 border-bg-btn-orangeHover rounded-lg">
                     <h1 className="font-bold text-xl lg:text-2xl text-center">STATUS KESEHATAN KELOMPOK</h1>
                     <h3 className="text-lg md:text-xl font-semibold mt-10 uppercase">Kelompok Ibu Menyusui</h3>
                     <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
-                    <div className="w-full border-b-black border-b-2 my-3"></div>
+                    <div className="w-full h-[5px] bg-bg-btn-orangeHover my-3"></div>
 
                     <div className="text-survey">
                         <div className="question">
@@ -149,12 +150,12 @@ const IbuMenyusui = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-[20px] grid grid-cols-12">
+                                <div className="mt-[20px] grid grid-cols-12">
                                     <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                                        <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold  py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
+                                        <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="py-4 w-full bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold uppercase transition-all duration-300 rounded-lg xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
                                     </div>
                                     <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                                        <button onClick={(e)=>{e.preventDefault(); ibu_menyusui()}} type="submit" className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SUBMIT</button>
+                                        <button onClick={(e)=>{e.preventDefault(); ibu_menyusui()}} type="submit" className="py-4 w-full bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold uppercase transition-all duration-300 rounded-lg xl:ms-3 lg:ms-3 md:ms-3 ms-0">SUBMIT</button>
                                     </div>
                                 </div>
                             </form>

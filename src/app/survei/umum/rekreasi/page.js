@@ -69,61 +69,64 @@ export default function SurveiRekreasi () {
     // };
     
     return (
-        <div className="relative my-[200px] flex items-center justify-center">
-            <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] xl:h-[630px] lg:h-[630px] md:h-[630px] h-[780px] w-[400px] py-[30px] px-[20px] bg-white shadow-xl border-2 border-bg-btn-orangeHover flex items-center">
-                <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]">
-                    <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
-                    <h1 className="text-[18px] font-medium mt-3">VIII. REKREASI</h1>
-                    <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
-                    <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
-                    <div className="pertanyaan">
-                        <div className="mb-3">
-                            <label>A. Sarana rekreasi yang ada di sekitar masyarakat:</label>
-                            <div className="ms-5">
-                                <input type="radio" id="Ada" value="Ada" name="sarana_rekreasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Ada">Ada</label>
+        <section className="mt-[150px] mb-[70px]">
+            <ToastContainer />
+            <div className="flex justify-center">
+                <div className="card lg:w-[900px] md:w-[700px] w-[350px] px-[30px] py-[40px] bg-white shadow-xl border-2 border-bg-btn-orangeHover rounded-lg">
+                    {/* <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]"> */}
+                        <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
+                        <h1 className="text-[18px] font-medium mt-3">VIII. REKREASI</h1>
+                        <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
+                        <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
+                        <div className="pertanyaan">
+                            <div className="mb-3">
+                                <label>A. Sarana rekreasi yang ada di sekitar masyarakat:</label>
+                                <div className="ms-5">
+                                    <input type="radio" id="Ada" value="Ada" name="sarana_rekreasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Ada">Ada</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="TidakAda" value="TidakAda" name="sarana_rekreasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="TidakAda">Tidak Ada</label>
+                                </div>
                             </div>
-                            <div className="ms-5">
-                                <input type="radio" id="TidakAda" value="TidakAda" name="sarana_rekreasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="TidakAda">Tidak Ada</label>
+                            <div className="mb-3">
+                                <label>B. Apakah keluarga rutin melakukan rekreasi untuk mengurangi tingkat stress:</label>
+                                <div className="ms-5">
+                                    <input type="radio" id="Ya" value="Ya" name="rekreasi_keluarga" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Ya">Ya</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Tidak" value="Tidak" name="rekreasi_keluarga" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Tidak">Tidak</label>
+                                </div>
+                            </div>
+                            <div>
+                                <label>C. Bagaimana keluarga memanfaatkan waktu luang:</label>
+                                <div className="ms-5">
+                                    <input type="radio" id="Jalan-jalan" value="Jalan-jalan" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Jalan-jalan">Jalan-jalan</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Olahraga" value="Olahraga" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Olahraga">Olahraga</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="BersamaKeluarga" value="BersamaKeluarga" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="BersamaKeluarga">Berkumpul bersama anggota keluarga</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Tidur" value="Tidur" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Tidur">Tidur</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="MenontonTV" value="MenontonTV" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="MenontonTV">Menonton TV</label>
+                                </div>
                             </div>
                         </div>
-                        <div className="mb-3">
-                            <label>B. Apakah keluarga rutin melakukan rekreasi untuk mengurangi tingkat stress:</label>
-                            <div className="ms-5">
-                                <input type="radio" id="Ya" value="Ya" name="rekreasi_keluarga" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Ya">Ya</label>
+                        <div className="my-[20px] grid grid-cols-12">
+                            <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                                <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold  py-4 w-full rounded-lg xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
                             </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Tidak" value="Tidak" name="rekreasi_keluarga" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Tidak">Tidak</label>
-                            </div>
-                        </div>
-                        <div>
-                            <label>C. Bagaimana keluarga memanfaatkan waktu luang:</label>
-                            <div className="ms-5">
-                                <input type="radio" id="Jalan-jalan" value="Jalan-jalan" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Jalan-jalan">Jalan-jalan</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Olahraga" value="Olahraga" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Olahraga">Olahraga</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="BersamaKeluarga" value="BersamaKeluarga" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="BersamaKeluarga">Berkumpul bersama anggota keluarga</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Tidur" value="Tidur" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="Tidur">Tidur</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="MenontonTV" value="MenontonTV" name="waktu_luang" onChange={(e)=> setC(e.target.value)}/><label htmlFor="MenontonTV">Menonton TV</label>
+                            <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                                <button onClick={(e)=>{e.preventDefault(); rekreasi()}} className="bg-bg-greenLight hover:bg-bg-greenDark text-[16px] font-semibold py-4 w-full rounded-lg xl:ms-3 lg:ms-3 md:ms-3 ms-0">SUBMIT</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="my-[20px] grid grid-cols-12">
-                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
-                        </div>
-                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                            <button onClick={(e)=>{e.preventDefault(); rekreasi()}} className="bg-bg-greenLight hover:bg-bg-greenDark text-[16px] font-semibold py-4 xl:px-[185px] lg:px-[185px] md:px-[147px] px-[147px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SUBMIT</button>
-                        </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
