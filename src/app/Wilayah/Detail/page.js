@@ -73,6 +73,11 @@ const DetailWilayah = () => {
                                                             </svg>
                                                             <span className="ms-2 text-sm">Cek Detail Kuisioner</span>
                                                         </button>
+                                                        <select className="py-1 px-3 text-sm font-medium rounded-md">
+                                                            <option selected>Pilih Status</option>
+                                                            <option value="">Layak</option>
+                                                            <option value="">Tidak Layak</option>
+                                                        </select>
                                                     </td>
                                                 </tr>
                                                 ))
