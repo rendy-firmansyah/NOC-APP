@@ -15,6 +15,8 @@ const Wilayah = () => {
     const [showEditPopup, setShowEditPopup] = useState(false)
     const [editedData, setEditedData] = useState({ id: null, nama: "" })
 
+    console.log(editedData)
+
     const openPopup = (id, nama) => {
         setEditedData({ id, nama });
         setShowEditPopup(true);
