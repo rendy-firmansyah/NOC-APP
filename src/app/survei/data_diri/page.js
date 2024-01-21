@@ -122,7 +122,7 @@ export default function data_diri() {
                     <select onChange={(e)=> setJenis_Kelamin(e.target.value)} id="L/P" class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
                         <option selected>Pilih L/P</option>
                         <option value="laki-laki">Laki-laki</option>
-                        <option value="istri">Perempuan</option>
+                        <option value="Perempuan">Perempuan</option>
                     </select>
                 </span>
             </div>
@@ -142,7 +142,7 @@ export default function data_diri() {
             <div className="grid grid-cols-12 gap-3 mt-5">
                 <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="alamat" className="block text-sm font-semibold text-black uppercase mb-3">Alamat</label>
-                <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class=" bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ">
+                <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class=" bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 max-h-[100px] overflow-y-scroll">
                 <option selected>Pilih alamat</option>
                 {data != null ? (
                     data.map((item,index) => (
