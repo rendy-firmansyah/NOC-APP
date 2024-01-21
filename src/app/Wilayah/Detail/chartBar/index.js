@@ -3,7 +3,7 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 export default function Lingkunganchart  ({ data })  {
-  const Data = data && data.result ? data.result : [];
+  const Data = data.result
   console.log(data)
   return (
     // <ResponsiveContainer width="100%" height={400}>
