@@ -15,7 +15,6 @@ const Wilayah = () => {
     const [showEditPopup, setShowEditPopup] = useState(false)
     const [editedData, setEditedData] = useState({ id: null, nama: "" })
 
-    console.log(editedData)
 
     const openPopup = (id, nama) => {
         setEditedData({ id, nama });
@@ -41,20 +40,17 @@ const Wilayah = () => {
         async function getData() {
             const fetch = await axios.get('/api/dashboard/wilayah')
             setData(fetch.data.Data)
-            // console.log(fetch.data.Data)
         }
         getData()
     },[]) 
     async function getData() {
         const fetch = await axios.get('/api/dashboard/wilayah')
         setData(fetch.data.Data)
-        // console.log(fetch.data.Data)
     }
   
 
     async function add_wilayah(){
         const send = await axios.post("/api/dashboard/wilayah",sendData)
-        console.log(send)
         if (send.data.status === "success"){
             toast('✔️ berhasil upload data', {
                 position: "top-right",
@@ -82,8 +78,7 @@ const Wilayah = () => {
 
     async function updateWilayah() {
         const updatedData = { id: editedData.id, nama: editedData.nama };
-        const send = await axios.put(`/api/dashboard/wilayah/${editedData.id}`, updatedData);
-        console.log(send)
+        const send = await axios.put(`/api/dashboard/wilayah`, updatedData);
 
         if (send.data.status === "success") {
             toast('✔️ Berhasil memperbarui data', {
