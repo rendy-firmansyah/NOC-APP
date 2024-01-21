@@ -14,6 +14,7 @@ export default function data_diri() {
     const router = useRouter()
     const pathname = usePathname()
     const [alamat,setAlamat] = useState()
+    const [selectedAlamat, setSelectedAlamat] = useState();
     const [hubungan,setHubungan] = useState()
     const [jenis_kelamin,setJenis_Kelamin] = useState()
     const [kelompok_kesehatan,setKelompok_kesehatan] = useState()
@@ -24,6 +25,7 @@ export default function data_diri() {
     const [pendidikan,setPendidikan] = useState()
     const [umur,setUmur] = useState()
     const [data,setData] = useState()
+    const [open,setOpen] = useState(false)
 
   
     const sendData = {
@@ -141,17 +143,20 @@ export default function data_diri() {
             <div className="grid grid-cols-12 gap-3 mt-5">
                 <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12">
                 <label for="alamat" className="block text-sm font-semibold text-black uppercase mb-3">Alamat</label>
-                <select onChange={(e)=> setAlamat(e.target.value)} id="alamat" class=" bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 max-h-[100px] overflow-y-scroll">
-                <option selected>Pilih alamat</option>
-                {data != null ? (
-                    data.map((item,index) => (
-                        <option key={item.id} value={item.id}>
-                            {item.nama}
-                        </option>
-                    ))
-                    ) : null}
-
-                </select>
+                <div className="w-full font-medium h-10 relative">
+                    <div onClick={() => setOpen(!open)} className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        {selectedAlamat ? selectedAlamat.nama : "Pilih Alamat"}
+                    </div>
+                    <ul className={`bg-gray-200 border border-gray-300 rounded-lg overflow-y-auto absolute z-20 left-0 right-0 ${ open ? "max-h-40" : "max-h-0" }`}>
+                    {data != null ? (
+                        data.map((item,index) => (
+                            <li key={item.id} className="p-2 text-sm hover:bg-sky-600 hover:text-white" onClick={() => { setAlamat(item.id); setSelectedAlamat(item); setOpen(false); }}>
+                                {item.nama}
+                            </li>
+                        ))
+                        ) : null}
+                    </ul>
+                </div>
                 </span>
 
                 <span className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 mt-2 xl:mt-0 lg:mt-0 md:mt-0">
@@ -170,7 +175,7 @@ export default function data_diri() {
             </div>
 
 
-                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] shadow-lg focus:outline-none">
+                <button type="submit" className="w-full py-3 mt-4 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] shadow-lg focus:outline-none">
                     Selanjutnya
                 </button>
 
