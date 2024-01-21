@@ -10,6 +10,23 @@ export async function POST(request: Request) {
         const data = await prisma.kartu_keluarga.findMany({
             where:{
                 alamat : Number(Data.id_alamat)
+            },
+            select:{
+                id : true,
+                no_kk :true,
+                wilayah:{
+                    select:{
+                        nama :true
+                    }
+                },
+               anggota_keluarga :{
+                where :{
+                    hubungan : "kepala_keluarga"
+                },
+                select:{
+                    nama:true
+                }
+               }
             }
         })
 
