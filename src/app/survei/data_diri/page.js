@@ -80,8 +80,7 @@ export default function data_diri() {
 
     return(
         <div className="relative my-[150px] min-h-screen grid place-items-center">
-
-         <ToastContainer />
+        <ToastContainer />
         <div className="w-11/12 px-4 py-10 bg-white shadow-xl border-2 border-bg-btn-orangeHover sm:w-8/12 md:w-8/2 lg:w-8/12">
             <h1 className="text-xl font-semibold flex justify-center">DATA DIRI</h1>
             <h1 className="font-semibold mt-3">NOC Survey</h1>
