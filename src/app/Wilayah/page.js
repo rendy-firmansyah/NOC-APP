@@ -12,6 +12,18 @@ const Wilayah = () => {
     const router = useRouter()
     const [nama,setNama] = useState()
     const [data,setData] = useState()
+    const [showEditPopup, setShowEditPopup] = useState(false)
+    const [editedData, setEditedData] = useState({ id: null, nama: "" })
+
+    const openPopup = (id, nama) => {
+        setEditedData({ id, nama });
+        setShowEditPopup(true);
+    };
+
+    const closePopup = () => {
+        setEditedData({ id: null, nama: "" });
+        setShowEditPopup(false);
+    };
 
     useEffect(()=>{
         const cookies = nookies.get()
@@ -149,7 +161,7 @@ const Wilayah = () => {
                                                 </svg>
                                             </button>
                                         {/* </Link> */}
-                                        <button type="" className="bg-yellow-400 px-2 py-1 rounded-md hover:bg-yellow-200 transition-all duration-300">
+                                        <button onClick={() => openPopup(item.id, item.nama)} type="button" className="bg-yellow-400 px-2 py-1 rounded-md hover:bg-yellow-200 transition-all duration-300">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />
                                             </svg>
@@ -171,6 +183,29 @@ const Wilayah = () => {
                                     ): null} 
                             </tbody>
                         </table>
+                        
+                        {showEditPopup && (
+                            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+                                <div className="bg-white p-8 rounded-md">
+                                    <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Edit Data Wilayah</h1>
+                                    <form>
+                                        <label htmlFor="editedWilayah" className="block text-sm font-semibold leading-6 text-gray-900">
+                                            Nama Wilayah
+                                        </label>
+                                        <div className="mt-2">
+                                            <input id="editedWilayah" name="editedWilayah" type="text" value={editedData.nama} autoComplete="editedWilayah" placeholder="Masukkan nama wilayah disini ...." className="px-3 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" />
+                                        </div>
+                                        <button type="submit" className="mt-3 py-2 text-white rounded-md w-full bg-blue-600 hover:bg-blue-500 transition-all duration-300">
+                                            Simpan
+                                        </button>
+                                        <button type="button" onClick={closePopup} className="mt-3 py-2 text-white rounded-md w-full bg-gray-400 hover:bg-gray-300 transition-all duration-300">
+                                            Batal
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        )}
+
                     </div>
                 </div>
             </div>
