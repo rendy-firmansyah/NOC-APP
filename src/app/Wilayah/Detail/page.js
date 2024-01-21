@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect,useState } from "react";
 import prisma from "../../../../lib/prisma";
 import Chart from "./chart";
+import nookies from "nookies"
 
 const DetailWilayah = () => {
     
@@ -21,6 +22,10 @@ const DetailWilayah = () => {
     }
 
     useEffect(()=>{
+        const cookies = nookies.get()
+        if(!cookies.token){
+            router.push("/login")
+        }
         async function get(){
             const fetch = await axios.post("/api/dashboard/DataWilayah",req)
             setData(fetch.data.data)    
@@ -43,6 +48,7 @@ const DetailWilayah = () => {
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
                             </button>
                         </Link>
+                        
                         <div className="grid grid-cols-12">
                             <div className="xl:col-span-9 lg:col-span-12 md:col-span-12 col-span-12">
                                 <div className="card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg w-full">
@@ -73,11 +79,6 @@ const DetailWilayah = () => {
                                                             </svg>
                                                             <span className="ms-2 text-sm">Cek Detail Kuisioner</span>
                                                         </button>
-                                                        <select className="py-1 px-3 text-sm font-medium rounded-md">
-                                                            <option selected>Pilih Status</option>
-                                                            <option value="">Layak</option>
-                                                            <option value="">Tidak Layak</option>
-                                                        </select>
                                                     </td>
                                                 </tr>
                                                 ))
@@ -94,25 +95,28 @@ const DetailWilayah = () => {
                                     <Chart props={chart} />
                                     <div className="flex flex-wrap justify-center">
                                         <div className="flex items-center">
-                                            <span className="w-[12px] h-[12px] bg-[#0088FE]"></span><span className="text-[12px] ms-[4px]">SD</span>
+                                            <span className="w-[12px] h-[12px] bg-[#0088FE]"></span><span className="text-[12px] ms-[4px]">Banyaknya kk</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#00C49F]"></span><span className="text-[12px] ms-[4px]">Balita</span>
+                                            <span className="w-[12px] h-[12px] bg-[#00C49F]"></span><span className="text-[12px] ms-[4px]">SD</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#f70808]"></span><span className="text-[12px] ms-[4px]">Dewasa</span>
+                                            <span className="w-[12px] h-[12px] bg-[#f70808]"></span><span className="text-[12px] ms-[4px]">Balita</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#FF8042]"></span><span className="text-[12px] ms-[4px]">Ibu Hamil</span>
+                                            <span className="w-[12px] h-[12px] bg-[#FF8042]"></span><span className="text-[12px] ms-[4px]">Dewasa</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#FFE599]"></span><span className="text-[12px] ms-[4px]">Ibu Menyusui</span>
+                                            <span className="w-[12px] h-[12px] bg-[#FFE599]"></span><span className="text-[12px] ms-[4px]">Ibu Hamil</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#F938F5]"></span><span className="text-[12px] ms-[4px]">Remaja</span>
+                                            <span className="w-[12px] h-[12px] bg-[#F938F5]"></span><span className="text-[12px] ms-[4px]">Ibu Menyusui</span>
                                         </div>
                                         <div className="flex items-center ms-2">
-                                            <span className="w-[12px] h-[12px] bg-[#006B76]"></span><span className="text-[12px] ms-[4px]">Lansia</span>
+                                            <span className="w-[12px] h-[12px] bg-[#006B76]"></span><span className="text-[12px] ms-[4px]">Remaja</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#452209]"></span><span className="text-[12px] ms-[4px]">Lansia</span>
                                         </div>
                                     </div>
                                 </div>

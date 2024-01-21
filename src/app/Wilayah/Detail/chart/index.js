@@ -8,7 +8,7 @@ const data = [
   { name: 'Group C', value: 30 },
   { name: 'Group D', value: 20 },
 ];
-const COLORS = ['#0088FE', '#00C49F', '#f70808', '#FF8042' , '#FFE599', '#F938F5','#006B76' ];
+const COLORS = ['#0088FE', '#00C49F', '#f70808', '#FF8042' , '#FFE599', '#F938F5','#006B76','#452209' ];
 
 const RADIAN = Math.PI / 180;
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
@@ -19,6 +19,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   return (
     <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
       {`${(percent * 100).toFixed(0)}%`}
+      {/* {index} */}
     </text>
   );
 };
