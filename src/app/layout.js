@@ -21,7 +21,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        {pathname === "/Dashboard" || pathname === "/Wilayah" || pathname === "/Wilayah/Detail" ? <NavbarAdmin/> : !disable.includes(pathname) && <Navbar/>}
+        {pathname === "/Dashboard" 
+        || pathname === "/Wilayah" 
+        || pathname === "/Wilayah/Detail" 
+        || pathname === "/Wilayah/DetailKeluarga" 
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/AnakSekolah"
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/Balita"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/Dewasa"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/IbuHamil"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/IbuMenyusui"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/Remaja"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerKesehatan/UsiaLanjut"  
+        || pathname === "/Wilayah/DetailKeluarga/KuisionerUmum" 
+        ? <NavbarAdmin/> : !disable.includes(pathname) && <Navbar/>}
         <div className='overflow-x-hidden overflow-y-hidden'>
           {children}
         </div>
