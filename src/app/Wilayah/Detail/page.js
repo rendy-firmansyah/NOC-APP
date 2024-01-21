@@ -89,9 +89,32 @@ const DetailWilayah = () => {
                                 </div>
                             </div>
                             <div className="xl:col-span-3 lg:col-span-12 md:col-span-12 col-span-12 flex justify-center">
-                                <div className="card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg h-[300px] w-[300px]">
+                                <div className="relative card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg h-[300px] w-[300px]">
                                     <h1 className="text-center text-[28px] font-bold uppercase">Data Chart</h1>
                                     <Chart props={chart} />
+                                    <div className="flex flex-wrap justify-center">
+                                        <div className="flex items-center">
+                                            <span className="w-[12px] h-[12px] bg-[#0088FE]"></span><span className="text-[12px] ms-[4px]">SD</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#00C49F]"></span><span className="text-[12px] ms-[4px]">Balita</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#f70808]"></span><span className="text-[12px] ms-[4px]">Dewasa</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#FF8042]"></span><span className="text-[12px] ms-[4px]">Ibu Hamil</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#FFE599]"></span><span className="text-[12px] ms-[4px]">Ibu Menyusui</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#F938F5]"></span><span className="text-[12px] ms-[4px]">Remaja</span>
+                                        </div>
+                                        <div className="flex items-center ms-2">
+                                            <span className="w-[12px] h-[12px] bg-[#006B76]"></span><span className="text-[12px] ms-[4px]">Lansia</span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

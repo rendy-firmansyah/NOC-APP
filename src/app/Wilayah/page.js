@@ -167,8 +167,8 @@ const Wilayah = () => {
                     </div>
                 </div>
                 <div className="card bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg">
-                    <div className="">
-                        <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Data Wilayah</h1>
+                    <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Data Wilayah</h1>
+                    <div className="overflow-x-auto">
                         <table class="table-auto w-full">
                             <thead>
                                 <tr>
