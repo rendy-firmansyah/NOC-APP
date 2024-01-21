@@ -1,7 +1,28 @@
 'use client'
+import axios from "axios";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useEffect,useState } from "react";
+import prisma from "../../../../lib/prisma";
 
 const DetailWilayah = () => {
+    const searchParams = useSearchParams();
+    const id_alamat = searchParams.get('id');
+    const [data,setData] = useState()
+
+    const req = {
+        id_alamat : id_alamat
+    }
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post("/api/dashboard/DataWilayah",req)
+            setData(fetch.data.data)
+            console.log(fetch.data.data)        
+        }
+        get()
+    },[])
+
     return (
         <>
             <section className="w-full my-[200px] flex items-center">
@@ -26,11 +47,13 @@ const DetailWilayah = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td class="border text-center px-4 py-2">1</td>
-                                            <td class="border text-center px-4 py-2">3710987625789201</td>
-                                            <td class="border text-center px-4 py-2">Ahmad Rizky Febianto</td>
-                                            <td class="border text-center px-4 py-2">Sukobumi</td>
+                                        {data != null ? (
+                                            data.map((item,index) => (
+                                            <tr key={item.id}>
+                                            <td class="border text-center px-4 py-2">{index+1}</td>
+                                            <td class="border text-center px-4 py-2">{item.no_kk}</td>
+                                            <td class="border text-center px-4 py-2">{item.anggota_keluarga[0].nama}</td>
+                                            <td class="border text-center px-4 py-2">{item.wilayah.nama}</td>
                                             <td className="border flex justify-center p-2 gap-3">
                                                 <button type="" className="bg-cyan-400 px-2 py-1 rounded-md flex items-center hover:bg-cyan-200 transition-all duration-300">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -40,6 +63,9 @@ const DetailWilayah = () => {
                                                 </button>
                                             </td>
                                         </tr>
+                                        ))
+                                        ):null}
+                                        
                                     </tbody>
                                 </table>
                             </div>
