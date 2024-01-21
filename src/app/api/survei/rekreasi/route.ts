@@ -17,7 +17,7 @@ export async function POST(request: Request) {
                 A : Data.a,
                 B : Data.b,
                 C : Data.c,
-                id_keluarga : Data.id
+                id_keluarga : Number(Data.id)
             }
         })
 
