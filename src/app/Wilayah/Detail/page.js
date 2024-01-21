@@ -46,7 +46,13 @@ const DetailWilayah = () => {
                         <div className="grid grid-cols-12">
                             <div className="xl:col-span-9 lg:col-span-12 md:col-span-12 col-span-12">
                                 <div className="card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg w-full">
-                                    <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Data Partisipasi Survei NOC</h1>
+                                    <div className="lg:flex lg:justify-between my-5 items-center">
+                                        <span><h1 className="text-[28px] font-bold uppercase">Data Partisipasi Survei NOC</h1></span>
+                                        <span className="flex gap-3">
+                                            <button type="" className="py-2 bg-green-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-green-700 transition-all duration-300">Layak</button>
+                                            <button type="" className="py-2 bg-red-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-red-700 transition-all duration-300">Tidak Layak</button>
+                                        </span>
+                                    </div>
                                     <div className="overflow-x-auto">
                                         <table class="table-auto w-full">
                                             <thead>

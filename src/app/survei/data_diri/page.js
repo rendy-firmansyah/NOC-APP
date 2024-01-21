@@ -175,7 +175,7 @@ export default function data_diri() {
             </div>
 
 
-                <button type="submit" className="w-full py-3 mt-4 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] shadow-lg focus:outline-none">
+                <button type="submit" className="w-full py-3 mt-6 font-extrabold tracking-widest text-black uppercase bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] shadow-lg focus:outline-none">
                     Selanjutnya
                 </button>
 
