@@ -1,10 +1,12 @@
+'use client'
+import Link from "next/link";
 import Image from "next/image";
 // import Navbar from "../components/Navbar";
 // import Fotter from "../components/Footer";
 
 export default function Home() {
   return (
-    <div className="overflow-y-hidden">
+    <div className="overflow-y-hidden overflow-x-hidden">
       <div className="relative flex justify-center">
         <img src="/Vector-0.png" className="min-w-fit absolute -z-50 mt-[450px] me-[350px]"/>
       </div>
@@ -17,7 +19,9 @@ export default function Home() {
                 <h1 className="xl:text-4xl lg:text-4xl md:text-3xl text-2xl xl:text-start text-center font-bold">Cegah Bersama, Deteksi Dini:NOC, Melangkah Bersama Menuju Kesehatan Unggul</h1>
                 <p className="my-5 xl:text-xl lg:text-lg xl:text-start text-center">Platform survei kesehatan untuk komunitas. Peroleh wawasan mendalam, identifikasi risiko, dan tingkatkan kesehatan bersama. Sehat dimulai dari partisipasi Anda di NOC.</p>
                 <div className="flex xl:justify-start justify-center mt-6">
-                  <button type="" className="px-6 py-3 font-semibold text-white border-4 border-bg-btn-orangeHover bg-bg-btn-orange hover:bg-bg-btn-orangeHover transition-all duration-200 rounded-sm">Isi Survey Sekarang</button>
+                  <Link href="/survei/data_diri">
+                    <button type="" className="px-6 py-3 font-semibold text-white border-4 border-bg-btn-orangeHover bg-bg-btn-orange hover:bg-bg-btn-orangeHover transition-all duration-200 rounded-sm">Isi Survey Sekarang</button>
+                  </Link>
                 </div>
               </div>
             </div>
