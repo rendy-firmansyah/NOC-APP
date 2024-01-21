@@ -11,17 +11,25 @@ const DetailWilayah = () => {
     const searchParams = useSearchParams();
     const id_alamat = searchParams.get('id');
     const [data,setData] = useState()
+    const [chart,setChart] = useState()
 
     const req = {
         id_alamat : id_alamat
+    }
+    const body = {
+        id : id_alamat
     }
 
     useEffect(()=>{
         async function get(){
             const fetch = await axios.post("/api/dashboard/DataWilayah",req)
-            setData(fetch.data.data)
-            console.log(fetch.data.data)        
+            setData(fetch.data.data)    
         }
+        async function get_chart(){
+            const fetch = await axios.post("/api/dashboard/chart",body)
+            setChart(fetch.data.result)
+        }
+        get_chart()
         get()
     },[])
 
@@ -78,7 +86,7 @@ const DetailWilayah = () => {
                             <div className="xl:col-span-3 lg:col-span-12 md:col-span-12 col-span-12 flex justify-center">
                                 <div className="card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg h-[300px] w-[300px]">
                                     <h1 className="text-center text-[28px] font-bold uppercase">Data Chart</h1>
-                                    <Chart />
+                                    <Chart props={chart} />
                                 </div>
                             </div>
                         </div>

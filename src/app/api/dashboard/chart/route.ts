@@ -48,16 +48,16 @@ export async function POST(request: Request) {
         });
         // console.log(countByHealthGroup.Anak_sd)
           
-        const result = {
-            kk: get_data,
-            kelompok_sd: countByHealthGroup.Anak_sd ? countByHealthGroup.Anak_sd : 0,
-            kelompok_balita: countByHealthGroup.Balita ? countByHealthGroup.Balita : 0,
-            kelompok_dewasa: countByHealthGroup.Dewasa ? countByHealthGroup.Dewasa : 0,
-            kelompok_bumil: countByHealthGroup.Ibu_hamil ? countByHealthGroup.Ibu_hamil : 0,
-            kelompok_ibu_menyusui: countByHealthGroup.Ibu_menyusui ? countByHealthGroup.Ibu_menyusui : 0,
-            kelompok_remaja: countByHealthGroup.Remaja ? countByHealthGroup.Remaja : 0,
-            kelompok_lansia: countByHealthGroup.Lansia ? countByHealthGroup.Lansia : 0
-        };        
+        const result = [
+            {name : "kk",value  : get_data},
+           {name : "kelompok_sd", value : countByHealthGroup.Anak_sd ? countByHealthGroup.Anak_sd : 0},
+            {name : "kelompok_balita", value : countByHealthGroup.Balita ? countByHealthGroup.Balita : 0},
+            {name : "kelompok_dewasa", value : countByHealthGroup.Dewasa ? countByHealthGroup.Dewasa : 0},
+            {name : "kelompok_bumil", value : countByHealthGroup.Ibu_hamil ? countByHealthGroup.Ibu_hamil : 0},
+           {name : "kelompok_ibu_menyusui", value : countByHealthGroup.Ibu_menyusui ? countByHealthGroup.Ibu_menyusui : 0},
+            {name : "kelompok_remaja", value : countByHealthGroup.Remaja ? countByHealthGroup.Remaja : 0},
+            {name : "kelompok_lansia", value : countByHealthGroup.Lansia ? countByHealthGroup.Lansia : 0}
+        ];        
         
         return NextResponse.json({
             status : "success",
