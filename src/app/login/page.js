@@ -32,7 +32,7 @@ const Login = () => {
         progress:1,
         theme: "light",
         });
-      router.push('/wilayah')
+      router.push('/Wilayah')
     } 
     else{
       toast('❌ failed login', {
