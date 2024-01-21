@@ -3,9 +3,9 @@ import axios from "axios";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { useEffect,useState } from "react";
-import prisma from "../../../../lib/prisma";
 import Chart from "./chart";
 import nookies from "nookies"
+import Lingkunganchart from "./chartLingkungan"
 
 const DetailWilayah = () => {
     
@@ -13,6 +13,7 @@ const DetailWilayah = () => {
     const id_alamat = searchParams.get('id');
     const [data,setData] = useState()
     const [chart,setChart] = useState()
+    const [lingkungan,setLingkungan] = useState()
 
     const req = {
         id_alamat : id_alamat
@@ -34,13 +35,22 @@ const DetailWilayah = () => {
             const fetch = await axios.post("/api/dashboard/chart",body)
             setChart(fetch.data.result)
         }
+        async function get_chart_lingkungan(){
+            const fetch = await axios.post("/api/dashboard/chart/Lingkungan",body)
+            // console.log(fetch.data)
+            setLingkungan(fetch.data)
+        }
+        get_chart_lingkungan()
         get_chart()
         get()
     },[])
+    // console.log(lingkungan )
+
 
     return (
         <>
             <section className="w-full my-[200px] flex items-center justify-center">
+
                 <div className="w-full">
                     <div className="px-[40px]">
                         <Link href="/Wilayah">
@@ -120,7 +130,12 @@ const DetailWilayah = () => {
                                         </div>
                                     </div>
                                 </div>
+                              
+                                {/* <BarChartComponent data={lingkungan} /> */}
                             </div>
+                            {lingkungan != null ?(
+                                    <Lingkunganchart data={lingkungan} />
+                                ):null}
                         </div>
                     </div>
                 </div>
