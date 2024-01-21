@@ -66,49 +66,52 @@ export default function SurveiTransportasi () {
     // };
 
     return (
-        <div className="relative my-[200px] flex items-center justify-center">
-            <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] xl:h-[540px] lg:h-[540px] md:h-[540px] h-[670px] w-[400px] py-[30px] px-[20px] bg-white shadow-xl border-2 border-bg-btn-orangeHover flex items-center">
-                <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]">
-                    <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
-                    <h1 className="text-[18px] font-medium mt-3">IV. TRANSPORTASI DAN KEAMANAN</h1>
-                    <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
-                    <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
-                    <div className="pertanyaan">
-                        <div className="mb-3">
-                            <label>A. Jenis transportasi yang dipakai keluarga ke pelayanan kesehatan:</label>
-                            <div className="ms-5">
-                                <input type="radio" id="Pribadi" value="Pribadi" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Pribadi">Kendaraan Pribadi (sepeda motor, mobil)</label>
+        <section className="mt-[150px] mb-[70px]">
+            <ToastContainer />
+            <div className="flex justify-center">
+                <div className="card lg:w-[900px] md:w-[700px] w-[350px] px-[30px] py-[40px] bg-white shadow-xl border-2 border-bg-btn-orangeHover rounded-lg">
+                    {/* <div className="xl:w-[980px] lg:w-[980px] md:w-[780px] w-[355px]"> */}
+                        <h1 className="text-center text-[28px] font-bold">SURVEI UMUM</h1>
+                        <h1 className="text-[18px] font-medium mt-3">IV. TRANSPORTASI DAN KEAMANAN</h1>
+                        <p>Isi dan lengkapi pertanyaan pertanyaan berikut ini.</p>
+                        <div className="line w-full h-[5px] bg-bg-btn-orangeHover my-2 mb-3"></div>
+                        <div className="pertanyaan">
+                            <div className="mb-3">
+                                <label>A. Jenis transportasi yang dipakai keluarga ke pelayanan kesehatan:</label>
+                                <div className="ms-5">
+                                    <input type="radio" id="Pribadi" value="Pribadi" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Pribadi">Kendaraan Pribadi (sepeda motor, mobil)</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Umum" value="Umum" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Umum">Kendaraan Umum (angkot, taxi, ojek, dll)</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Desa" value="Desa" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Desa">Kendaraan Desa (ambulans)</label>
+                                </div>
                             </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Umum" value="Umum" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Umum">Kendaraan Umum (angkot, taxi, ojek, dll)</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Desa" value="Desa" name="jenis_transportasi" onChange={(e)=> setA(e.target.value)}/><label htmlFor="Desa">Kendaraan Desa (ambulans)</label>
+                            <div>
+                                <label>B. Pelayanan perlindungan yang tersedia di masyarakat:</label>
+                                <div className="ms-5">
+                                    <input type="radio" id="Ambulance" value="Ambulance" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Ambulance">Ambulance desa 24 Jam</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="PosKamling" value="PosKamling" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="PosKamling">Pos Kamling</label>
+                                </div>
+                                <div className="ms-5">
+                                    <input type="radio" id="Polsek" value="Polsek" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Polsek">Polsek/Polres</label>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <label>B. Pelayanan perlindungan yang tersedia di masyarakat:</label>
-                            <div className="ms-5">
-                                <input type="radio" id="Ambulance" value="Ambulance" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Ambulance">Ambulance desa 24 Jam</label>
+                        <div className="my-[20px] grid grid-cols-12">
+                            <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                                <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold  py-4 w-full rounded-lg xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
                             </div>
-                            <div className="ms-5">
-                                <input type="radio" id="PosKamling" value="PosKamling" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="PosKamling">Pos Kamling</label>
-                            </div>
-                            <div className="ms-5">
-                                <input type="radio" id="Polsek" value="Polsek" name="pelayanan" onChange={(e)=> setB(e.target.value)}/><label htmlFor="Polsek">Polsek/Polres</label>
+                            <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
+                                <button onClick={(e)=>{e.preventDefault(); transportasi_keamanan()}}  className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 w-full rounded-lg xl:ms-3 lg:ms-3 md:ms-3 ms-0">SELANJUTNYA</button>
                             </div>
                         </div>
-                    </div>
-                    <div className="my-[20px] grid grid-cols-12">
-                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                            <button onClick={(e)=>{e.preventDefault(); Sebelumnya()}} className="bg-bg-blueLight hover:bg-bg-blueDark text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[125px] xl:mb-0 lg:mb-0 md:mb-0 mb-3">SEBELUMNYA</button>
-                        </div>
-                        <div className="xl:col-span-6 lg:col-span-6 md:col-span-6 col-span-12 flex justify-center">
-                            <button onClick={(e)=>{e.preventDefault(); transportasi_keamanan()}}  className="bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px] font-semibold py-4 xl:px-[165px] lg:px-[165px] md:px-[120px] px-[120px] xl:ms-3 lg:ms-3 md:ms-3 ms-0">SELANJUTNYA</button>
-                        </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
