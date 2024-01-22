@@ -210,5 +210,7 @@ model kelompok_lansia{
 model wilayah {
   id            Int @id @default(autoincrement())
   nama          String
+  layak         Boolean?
+  Deskripsi     String?
   kartu_keluarga kartu_keluarga[]
 }
