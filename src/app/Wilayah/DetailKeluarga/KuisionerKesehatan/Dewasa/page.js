@@ -12,6 +12,20 @@ const KuisionerKesehatanDewasa = () => {
     const id = searchParams.get('id');
     const id_kk = searchParams.get('id_kk');
     const id_daerah = searchParams.get('id_daerah');
+    const [data,setData] = useState()
+
+    const req = {
+        id : id
+    }
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/survei_kelompok/Dewasa`,req)
+            // console.log(fetch.data.data)
+            setData(fetch.data.data)
+        }
+        get()
+    },[])
 
     return (
         <section className="w-full my-[200px] flex items-center justify-center">
@@ -36,8 +50,22 @@ const KuisionerKesehatanDewasa = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                            {data != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2">
+                                                {data.A}
+                                            </td> 
+                                            <td className="border px-4 py-2">
+                                                {data.B}
+                                            </td>
+                                            <td className="border px-4 py-2">
+                                                {data.C}
+                                            </td>
+                                            <td className="border px-4 py-2">
+                                                {data.D}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>

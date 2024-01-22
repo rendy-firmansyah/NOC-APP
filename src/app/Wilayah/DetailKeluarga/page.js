@@ -127,11 +127,11 @@ const DetailKeluarga = () => {
                     </div>
 
                     <div className="flex justify-end">
-                        <Link href="/Wilayah/DetailKeluarga/KuisionerUmum">
-                            <button type="submit" className="px-5 py-3 mb-5 mt-10 rounded-md font-semibold content-end bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px]">
+                        {/* <Link href="/Wilayah/DetailKeluarga/KuisionerUmum"> */}
+                            <button onClick={()=>router.push(`/Wilayah/DetailKeluarga/KuisionerUmum?id=${id_kk}&alamat=${id_daerah}`)} type="submit" className="px-5 py-3 mb-5 mt-10 rounded-md font-semibold content-end bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover text-[16px]">
                                 Cek Survei Umum
                             </button>
-                        </Link>
+                        {/* </Link> */}
                     </div>
 
                 </div>

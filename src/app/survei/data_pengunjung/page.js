@@ -75,7 +75,11 @@ export default function data_pengunjung() {
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nama}</td>
                                 <td className="xs:table-cell border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{item.nik}</td>
                                 <td className="xs:table-cell font-semibold border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                                    {item.kelompok_kesehatan === "Ibu_hamil" ? (
+                                    {item.status === true? (
+                                        <button type="submit" className="disabled w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
+                                        Isi Survey
+                                    </button>
+                                    ) :item.kelompok_kesehatan === "Ibu_hamil" ? (
                                             <button onClick={()=>router.push(`/survei/kelompok_kesehatan/IbuHamil?id=${item.id}&idk=${query}`)} type="submit" className="w-32 py-2 mx-auto font-extrabold bg-gray-300 text-red-950 rounded-xl">
                                                 Isi Survey
                                             </button>
