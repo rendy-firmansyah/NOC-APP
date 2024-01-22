@@ -6,6 +6,7 @@ import nookies from "nookies"
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 
+
 const KuisionerKesehatanBumil = () => {
     const router = useRouter()
     const searchParams = useSearchParams();
