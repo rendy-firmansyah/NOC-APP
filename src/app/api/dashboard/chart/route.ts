@@ -37,7 +37,16 @@ export async function POST(request: Request) {
             }
           });
 
-        const countByHealthGroup = {};
+        const countByHealthGroup = {
+          Anak_sd : 0,
+          Balita : 0,
+          Dewasa : 0,
+          Ibu_hamil : 0,
+          Ibu_menyusui : 0,
+          Remaja :0,
+          Lansia:0
+        };
+           
         
         // Iterasi melalui data untuk menghitung jumlah anggota keluarga dalam setiap kelompok kesehatan
         get_data2.forEach(item => {
@@ -47,17 +56,16 @@ export async function POST(request: Request) {
             });
         });
         // console.log(countByHealthGroup.Anak_sd)
-          
         const result = [
-            {name : "kk",value  : get_data},
-           {name : "kelompok_sd", value : countByHealthGroup.Anak_sd ? countByHealthGroup.Anak_sd : 0},
-            {name : "kelompok_balita", value : countByHealthGroup.Balita ? countByHealthGroup.Balita : 0},
-            {name : "kelompok_dewasa", value : countByHealthGroup.Dewasa ? countByHealthGroup.Dewasa : 0},
-            {name : "kelompok_bumil", value : countByHealthGroup.Ibu_hamil ? countByHealthGroup.Ibu_hamil : 0},
-           {name : "kelompok_ibu_menyusui", value : countByHealthGroup.Ibu_menyusui ? countByHealthGroup.Ibu_menyusui : 0},
-            {name : "kelompok_remaja", value : countByHealthGroup.Remaja ? countByHealthGroup.Remaja : 0},
-            {name : "kelompok_lansia", value : countByHealthGroup.Lansia ? countByHealthGroup.Lansia : 0}
-        ];        
+          {name : "kk",value  : get_data},
+         {name : "kelompok_sd", value : countByHealthGroup.Anak_sd ? countByHealthGroup.Anak_sd : 0},
+          {name : "kelompok_balita", value : countByHealthGroup.Balita ? countByHealthGroup.Balita : 0},
+          {name : "kelompok_dewasa", value : countByHealthGroup.Dewasa ? countByHealthGroup.Dewasa : 0},
+          {name : "kelompok_bumil", value : countByHealthGroup.Ibu_hamil ? countByHealthGroup.Ibu_hamil : 0},
+         {name : "kelompok_ibu_menyusui", value : countByHealthGroup.Ibu_menyusui ? countByHealthGroup.Ibu_menyusui : 0},
+          {name : "kelompok_remaja", value : countByHealthGroup.Remaja ? countByHealthGroup.Remaja : 0},
+          {name : "kelompok_lansia", value : countByHealthGroup.Lansia ? countByHealthGroup.Lansia : 0}
+      ]; 
         
         return NextResponse.json({
             status : "success",
