@@ -23,6 +23,9 @@ const DetailWilayah = () => {
     const [politik_pemerintahan,setPolitikPemerintahan] = useState()
     const [rekreasi,setRekreasi] = useState()
     const [transportasi_keamanan,setTransportasiKeamanan] = useState()
+    const [currentPage, setCurrentPage] = useState(1)
+    const [perPage] = useState(3)
+    const [totalPages, setTotalPages] = useState(1)
 
     const req = {
         id_alamat : id_alamat
@@ -30,6 +33,16 @@ const DetailWilayah = () => {
     const body = {
         id : id_alamat
     }
+
+    const handlePageChange = (newPage) => {
+        setCurrentPage(newPage);
+    };
+
+    useEffect(() => {
+        if (data) {
+            setTotalPages(Math.ceil(data.length / perPage));
+        }
+    }, [data, perPage]);
 
     useEffect(()=>{
         const cookies = nookies.get()
@@ -135,9 +148,9 @@ const DetailWilayah = () => {
                                             </thead>
                                             <tbody>
                                                 {data != null ? (
-                                                    data.map((item,index) => (
+                                                    data.slice((currentPage - 1) * perPage, currentPage * perPage).map((item, index) => (
                                                     <tr key={item.id}>
-                                                    <td class="border text-center px-4 py-2">{index+1}</td>
+                                                    <td class="border text-center px-4 py-2">{(currentPage - 1) * perPage + index + 1}</td>
                                                     <td class="border text-center px-4 py-2">{item.no_kk}</td>
                                                     <td class="border text-center px-4 py-2">{item.anggota_keluarga[0].nama}</td>
                                                     <td class="border text-center px-4 py-2">{item.wilayah.nama}</td>
@@ -157,6 +170,22 @@ const DetailWilayah = () => {
                                                 
                                             </tbody>
                                         </table>
+                                        <div className="flex justify-end mt-4">
+                                            <button
+                                                onClick={() => handlePageChange(currentPage - 1)}
+                                                disabled={currentPage === 1}
+                                                className="mr-2 px-4 py-2 rounded bg-bg-btn-orangeLight hover:bg-bg-btn-orangeHover transition-all duration-300"
+                                            >
+                                                Previous
+                                            </button>
+                                            <button
+                                                onClick={() => handlePageChange(currentPage + 1)}
+                                                disabled={currentPage === totalPages}
+                                                className="px-4 py-2 bg-gray-300 rounded"
+                                            >
+                                                Next
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

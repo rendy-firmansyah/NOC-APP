@@ -15,6 +15,9 @@ const Wilayah = () => {
     const [showEditPopup, setShowEditPopup] = useState(false)
     const [editedData, setEditedData] = useState({ id: null, nama: "" })
 
+    const [showInfo, setShowInfo] = useState(false)
+
+    // const openInfo = (id)
 
     const openPopup = (id, nama) => {
         setEditedData({ id, nama });
@@ -179,7 +182,12 @@ const Wilayah = () => {
                                 <tr>
                                     <td class="border text-center px-4 py-2">{index+1}</td>
                                     <td class="border text-center px-4 py-2">{item.nama}</td>
-                                    <td class="border text-center px-4 py-2">N?A</td>
+                                    <td class="border text-center px-4 py-2">
+                                        <div>
+                                            <button type="" className="py-1 bg-green-500 px-3 text-xs rounded-lg text-white font-semibold border-2 shadow-md cursor-default">Layak</button>
+                                            <button type="" className="py-1 bg-blue-500 px-3 text-xs rounded-lg text-white font-semibold border-2 shadow-md hover:bg-blue-700 transition-all duration-300">Cek Kelayakan</button>
+                                        </div>
+                                    </td>
 
                                     <td className="border flex justify-center p-2 gap-3">
                                         {/* <Link href="/Wilayah/Detail"> */}
