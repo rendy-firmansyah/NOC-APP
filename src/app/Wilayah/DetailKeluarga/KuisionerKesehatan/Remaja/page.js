@@ -4,7 +4,7 @@ import { useEffect,useState } from "react";
 import { useRouter } from 'next/navigation'
 import nookies from "nookies"
 import axios from "axios";
-
+import { useSearchParams } from "next/navigation";
 
 const KuisionerKesehatanRemaja = () => {
     const router = useRouter()
@@ -12,6 +12,18 @@ const KuisionerKesehatanRemaja = () => {
     const id = searchParams.get('id');
     const id_kk = searchParams.get('id_kk');
     const id_daerah = searchParams.get('id_daerah');
+
+    const req = {
+        id : id
+    }
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/survei_kelompok/Remaja`,req)
+            console.log(fetch.data)
+        }
+        get()
+    },[])
 
     return (
         <section className="w-full my-[200px] flex items-center justify-center">
