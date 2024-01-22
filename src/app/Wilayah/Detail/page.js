@@ -160,7 +160,7 @@ const DetailWilayah = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="xl:col-span-3 lg:col-span-12 md:col-span-12 col-span-12 flex justify-center">
+                            <div className="xl:col-span-3 lg:col-span-12 md:col-span-12 col-span-12 flex justify-center mb-20">
                                 <div className="relative card mt-5 bg-white border-2 border-bg-btn-orangeHover p-5 rounded-lg shadow-lg h-[300px] w-[300px]">
                                     <h1 className="text-center text-[28px] font-bold uppercase">Data Chart</h1>
                                     <Chart props={chart} />
@@ -195,15 +195,39 @@ const DetailWilayah = () => {
                                 {/* <BarChartComponent data={lingkungan} /> */}
                             </div>
                             {lingkungan != null ?(
-                                <div>
-                                    <Lingkunganchart data={ekonomi} />
-                                    <Lingkunganchart data={pendidikan} />
-                                    <Lingkunganchart data={lingkungan}/>
-                                    <Lingkunganchart data={rekreasi} />
-                                    <Lingkunganchart data={transportasi_keamanan} />
-                                    <Lingkunganchart data={politik_pemerintahan} />
-                                    <Lingkunganchart data={pelayanan_kesehatan} />
-                                    <Lingkunganchart data={komunikasi} />
+                                <div className="md:col-span-12 flex-col grid grid-cols-12 gap-4 mt-10">
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Ekonomi</h1>
+                                        <Lingkunganchart data={ekonomi} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Pendidikan</h1>
+                                        <Lingkunganchart data={pendidikan} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Lingkungan</h1>
+                                        <Lingkunganchart data={lingkungan}/>
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Rekreasi</h1>
+                                        <Lingkunganchart data={rekreasi} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Transportasi</h1>
+                                        <Lingkunganchart data={transportasi_keamanan} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Pemerintahan</h1>
+                                        <Lingkunganchart data={politik_pemerintahan} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Kesehatan</h1>
+                                        <Lingkunganchart data={pelayanan_kesehatan} />
+                                    </div>
+                                    <div className="col-span-12 lg:col-span-6 xl:col-span-6">
+                                        <h1 className="mb-5 font-bold uppercase text-lg bg-bg-chart py-2 text-white rounded text-center">Grafis Data Segi Komunikasi</h1>
+                                        <Lingkunganchart data={komunikasi} />
+                                    </div>
                                 </div>
                                     
                             ) : null}

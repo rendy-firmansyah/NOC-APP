@@ -25,6 +25,7 @@ module.exports = {
         'bg-greenLight' : '#B4E07D',
         'bg-green' : '#9CDC4B',
         'bg-greenDark' : '#78C318',
+        'bg-chart' : '#8884D8',
       }
     },
   },
