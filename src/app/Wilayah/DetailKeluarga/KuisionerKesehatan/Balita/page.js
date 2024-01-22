@@ -20,7 +20,7 @@ const KuisionerKesehatanBalita = () => {
 
     useEffect(()=>{
         async function get(){
-            const fetch = await axios.post(`/api/get_survei/survei_kelompok/balita`,req)
+            const fetch = await axios.post(`/api/get_survei/survei_kelompok/Balita`,req)
             // console.log(fetch.data)
             setData(fetch.data.data)
         }
