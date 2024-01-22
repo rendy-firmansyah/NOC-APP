@@ -6,9 +6,11 @@ import { useEffect,useState } from "react";
 import Chart from "./chart";
 import nookies from "nookies"
 import Lingkunganchart from "./chartLingkungan"
+import { useRouter } from 'next/navigation'
+
 
 const DetailWilayah = () => {
-    
+    const router = useRouter()
     const searchParams = useSearchParams();
     const id_alamat = searchParams.get('id');
     const [data,setData] = useState()
