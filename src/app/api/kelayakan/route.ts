@@ -4,7 +4,7 @@ import prisma from "../../../../lib/prisma";
 export async function POST(request: Request) {
     const Data = await request.json()
     try{
-        if(!Data.id || !Data.deskripsi){
+        if(!Data.id || !Data.deskripsi || !Data.layak){
             return NextResponse.json({
                 status : "failed",
                 reason :"req body kosong"
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
                 id : Number(Data.id)
             },
             data:{
-                layak:true,
+                layak:Boolean(Data.layak),
                 Deskripsi: Data.deskripsi
             }
         })
