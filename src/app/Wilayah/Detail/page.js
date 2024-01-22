@@ -27,6 +27,8 @@ const DetailWilayah = () => {
     const [perPage] = useState(3)
     const [totalPages, setTotalPages] = useState(1)
     const [showPopup, setShowPopup] = useState(false)
+    const [deskripsi, setDeskripsi] = useState()
+    const [btnLayak, setLayak] = useState()
 
     const req = {
         id_alamat : id_alamat
@@ -35,13 +37,40 @@ const DetailWilayah = () => {
         id : id_alamat
     }
 
-    const openPopup = () => {
+    const openPopup = (Layak) => {
+        setLayak(Layak)
         setShowPopup(true)
     }
 
     const closePopup = () => {
         setShowPopup(false)
     }
+
+    async function Layak () {
+        const send = {
+            id : id_alamat,
+            deskripsi : deskripsi,
+            layak : true
+        }
+
+        const fetch = await axios.post("/api/kelayakan", send)
+        closePopup()
+        console.log(fetch.data)
+    }
+
+    async function TidakLayak () {
+        const send = {
+            id : id_alamat,
+            deskripsi : deskripsi,
+            layak : false
+        }
+
+        const fetch = await axios.post("/api/kelayakan", send)
+        closePopup()
+        console.log(fetch.data)
+    }
+
+    // console.log(deskripsi)
 
     const handlePageChange = (newPage) => {
         setCurrentPage(newPage);
@@ -140,8 +169,8 @@ const DetailWilayah = () => {
                                     <div className="lg:flex lg:justify-between my-5 items-center">
                                         <span><h1 className="text-[28px] font-bold uppercase">Data Partisipasi Survei NOC</h1></span>
                                         <span className="flex gap-3">
-                                            <button type="" onClick={openPopup} className="py-2 bg-green-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-green-700 transition-all duration-300">Layak</button>
-                                            <button type="" onClick={openPopup} className="py-2 bg-red-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-red-700 transition-all duration-300">Tidak Layak</button>
+                                            <button type="" onClick={()=>openPopup("Layak")} className="py-2 bg-green-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-green-700 transition-all duration-300">Layak</button>
+                                            <button type="" onClick={()=>openPopup("TidakLayak")} className="py-2 bg-red-500 px-5 text-sm rounded-lg text-white font-semibold border-2 shadow-md hover:bg-red-700 transition-all duration-300">Tidak Layak</button>
                                         </span>
                                     </div>
                                     <div className="overflow-x-auto">
@@ -274,7 +303,16 @@ const DetailWilayah = () => {
                             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
                                 <div className="bg-white p-8 rounded-md">
                                     <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Deskripsi Kelayakan Wilayah</h1>
-                                    <textarea className="w-full h-40 italic border-2 rounded-lg p-3" readOnly>desa ini sangat layak karena dari potensi pendidikan sudah sangat maju sekali</textarea>
+                                    <textarea onChange={(e)=>setDeskripsi(e.target.value)} className="w-full h-40 italic border-2 rounded-lg p-3">desa ini sangat layak karena dari potensi pendidikan sudah sangat maju sekali</textarea>
+                                    {btnLayak === "Layak" ? (
+                                        <button type="button" onClick={()=>Layak()} className="mt-3 py-2 text-white rounded-md w-full bg-green-500 hover:bg-green-700 transition-all duration-300">
+                                            Simpan
+                                        </button>
+                                    ) : (
+                                        <button type="button" onClick={()=>TidakLayak()} className="mt-3 py-2 text-white rounded-md w-full bg-green-500 hover:bg-green-700 transition-all duration-300">
+                                            Simpan
+                                        </button>
+                                    )}
                                     <button type="button" onClick={closePopup} className="mt-3 py-2 text-white rounded-md w-full bg-red-500 hover:bg-red-700 transition-all duration-300">
                                         Kembali
                                     </button>
