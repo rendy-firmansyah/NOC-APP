@@ -4,7 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } fro
 
 export default function Lingkunganchart  ({ data })  {
   const Data = data && data.result ? data.result : [];
-  console.log(data)
+  // console.log(data)
   return (
     // <ResponsiveContainer width="100%" height={400}>
       <BarChart width={600} height={400} data={Data}>
