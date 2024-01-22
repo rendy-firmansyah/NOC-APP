@@ -17,7 +17,13 @@ const Wilayah = () => {
 
     const [showInfo, setShowInfo] = useState(false)
 
-    // const openInfo = (id)
+    const openInfo = () => {
+        setShowInfo(true)
+    }
+
+    const closeInfo = () => {
+        setShowInfo(false)
+    }
 
     const openPopup = (id, nama) => {
         setEditedData({ id, nama });
@@ -185,7 +191,7 @@ const Wilayah = () => {
                                     <td class="border text-center px-4 py-2">
                                         <div>
                                             <button type="" className="py-1 bg-green-500 px-3 text-xs rounded-lg text-white font-semibold border-2 shadow-md cursor-default">Layak</button>
-                                            <button type="" className="py-1 bg-blue-500 px-3 text-xs rounded-lg text-white font-semibold border-2 shadow-md hover:bg-blue-700 transition-all duration-300">Cek Kelayakan</button>
+                                            <button onClick={() => openInfo()} type="" className="py-1 bg-blue-500 px-3 text-xs rounded-lg text-white font-semibold border-2 shadow-md hover:bg-blue-700 transition-all duration-300">Cek Kelayakan</button>
                                         </div>
                                     </td>
 
@@ -233,6 +239,18 @@ const Wilayah = () => {
                                             Batal
                                         </button>
                                     </form>
+                                </div>
+                            </div>
+                        )}
+
+                        {showInfo && (
+                            <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
+                                <div className="bg-white p-8 rounded-md">
+                                    <h1 className="text-center text-[28px] font-bold mb-5 uppercase">Deskripsi Kelayakan Wilayah</h1>
+                                    <textarea className="w-full h-40 italic border-2 rounded-lg p-3" readOnly>desa ini sangat layak karena dari potensi pendidikan sudah sangat maju sekali</textarea>
+                                    <button type="button" onClick={closeInfo} className="mt-3 py-2 text-white rounded-md w-full bg-red-500 hover:bg-red-700 transition-all duration-300">
+                                        Kembali
+                                    </button>
                                 </div>
                             </div>
                         )}
