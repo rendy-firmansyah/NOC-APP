@@ -11,6 +11,90 @@ const KuisionerUmum = () => {
     const searchParams = useSearchParams();
     const id = searchParams.get('id');
     const id_daerah = searchParams.get('alamat');
+    const [ekonomi,setEkonomi] = useState()
+    const [komunikasi,setKomunikasi] = useState()
+    const [lingkungan,setLingkungan] = useState()
+    const [pelayanan_kesehatan,setPelayananKesehatan] = useState()
+    const [pendidikan,setPendidikan] = useState()
+    const [politik_pemerintahan,setPolitikPemerintahan] = useState()
+    const [rekreasi,setRekreasi] = useState()
+    const [transportasi_keamanan,setTransportasiKeamanan] = useState()
+
+    const req = {
+        id : id
+    }
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/Ekonomi`,req)
+            // console.log(fetch.data)
+            setEkonomi(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/Komunikasi`,req)
+            // console.log(fetch.data)
+            setKomunikasi(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/Lingkungan`,req)
+            // console.log(fetch.data)
+            setLingkungan(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/PelayananKesehatan`,req)
+            // console.log(fetch.data)
+            setPelayananKesehatan(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/Pendidikan`,req)
+            // console.log(fetch.data)
+            setPendidikan(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/PolitikPemerintahan`,req)
+            // console.log(fetch.data)
+            setPolitikPemerintahan(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/Rekreasi`,req)
+            // console.log(fetch.data)
+            setRekreasi(fetch.data.data)
+        }
+        get()
+    },[])
+
+    useEffect(()=>{
+        async function get(){
+            const fetch = await axios.post(`/api/get_survei/surveiUmum/TransportasiKeamanan`,req)
+            // console.log(fetch.data)
+            setTransportasiKeamanan(fetch.data.data)
+        }
+        get()
+    },[])
 
     return (
         <section className="w-full my-[200px] flex items-center justify-center">
@@ -30,21 +114,56 @@ const KuisionerUmum = () => {
                                     <thead>
                                         <tr>
                                             <th className="border px-4 py-2">A1. Kondisi ventilasi rumah</th>
-                                            <th className="border px-4 py-2">A1. Pencahayaan dalam rumah siang hari</th>
-                                            <th className="border px-4 py-2">A1. Kepadatan dan kebersihan lokasi atau area perumahan</th>
-                                            <th className="border px-4 py-2">A1. Kondisi udara area perumahan</th>
+                                            <th className="border px-4 py-2">A2. Pencahayaan dalam rumah siang hari</th>
+                                            <th className="border px-4 py-2">A3. Kepadatan dan kebersihan lokasi atau area perumahan</th>
+                                            <th className="border px-4 py-2">A4. Kondisi udara area perumahan</th>
                                             <th className="border px-4 py-2">B1. Kondisi air</th>
-                                            <th className="border px-4 py-2">B1. Terdapat/tidaknya jentik dalam tempat penampungan air</th>
+                                            <th className="border px-4 py-2">B2. Terdapat/tidaknya jentik dalam tempat penampungan air</th>
                                             <th className="border px-4 py-2">C1. Dimanakah keluarga membuang sampah</th>
-                                            <th className="border px-4 py-2">C1. Kebiasaan keluarga buang air besar</th>
+                                            <th className="border px-4 py-2">C2. Kebiasaan keluarga buang air besar</th>
                                             <th className="border px-4 py-2">D1. Adakah kegiatan sosial di masyarakat?</th>
-                                            <th className="border px-4 py-2">D1. Jenis kegiatan sosial di masyarakat</th>
-                                            <th className="border px-4 py-2">D1. Apakah keluarga rutin menghadiri kegiatan di masyarakat</th>
+                                            <th className="border px-4 py-2">D2. Jenis kegiatan sosial di masyarakat</th>
+                                            <th className="border px-4 py-2">D3. Apakah keluarga rutin menghadiri kegiatan di masyarakat</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {lingkungan != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.A1}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.A2}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.A3}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.A4}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.B1}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.B2}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.C1}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.C2}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.D1}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.D2}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {lingkungan.D3}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -63,8 +182,25 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {pelayanan_kesehatan != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.B}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.C}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.D}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.E}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -81,8 +217,19 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {ekonomi != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {ekonomi.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {ekonomi.B}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {ekonomi.C}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -98,8 +245,16 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {pelayanan_kesehatan != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {pelayanan_kesehatan.B}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -115,8 +270,16 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {politik_pemerintahan != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {politik_pemerintahan.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {politik_pemerintahan.B}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -132,8 +295,16 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {komunikasi != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {komunikasi.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {komunikasi.B}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -148,8 +319,13 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {pendidikan != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {pendidikan.A}
+                                            </td> 
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
@@ -166,8 +342,19 @@ const KuisionerUmum = () => {
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    {rekreasi != null ? (
                                         <tr>
+                                            <td className="border px-4 py-2 text-center">
+                                                {rekreasi.A}
+                                            </td> 
+                                            <td className="border px-4 py-2 text-center">
+                                                {rekreasi.B}
+                                            </td>
+                                            <td className="border px-4 py-2 text-center">
+                                                {rekreasi.C}
+                                            </td>
                                         </tr>
+                                            ):null}
                                     </tbody>
                                 </table>
                             </div>
