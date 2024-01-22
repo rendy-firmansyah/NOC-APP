@@ -28,7 +28,7 @@ const Balita = () => {
     const idk = searchParams.get('idk');
 
     const sendData = {
-        id : idk,
+        id : query,
         id_kk : query,
         a : a,
         b : b,
