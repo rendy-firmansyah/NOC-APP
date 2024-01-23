@@ -131,6 +131,10 @@ const Remaja = () => {
                                             <input type="radio" id="narkoba" value="narkoba" name="narkoba" onChange={(e)=> setC(e.target.value)}/>
                                             <label for="narkoba" class="block text-sm font-medium leading-6 text-gray-900">Narkoba</label>
                                         </div>
+                                        <div class="flex items-center gap-x-2">
+                                            <input type="radio" id="tidakAda" value="tidak ada" name="tidakAda" onChange={(e)=> setC(e.target.value)}/>
+                                            <label for="tidakAda" class="block text-sm font-medium leading-6 text-gray-900">Tidak Ada</label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="mt-3">                                    

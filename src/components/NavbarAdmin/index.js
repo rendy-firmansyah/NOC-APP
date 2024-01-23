@@ -19,7 +19,7 @@ const NavbarAdmin = () => {
 
   function logout(){
     nookies.destroy(null,"token")
-    router.push("/login")
+    router.push("/")
   }
 
   return (
