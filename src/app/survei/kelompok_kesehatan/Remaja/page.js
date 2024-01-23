@@ -120,15 +120,15 @@ const Remaja = () => {
                                     <p>c. Kebiasaan anak</p>
                                     <div class="mt-2 space-y-2">
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="merokok" value="merokok" name="kegiatan_luar" onChange={(e)=> setC(e.target.value)}/>
+                                            <input type="radio" id="merokok" value="merokok" name="merokok" onChange={(e)=> setC(e.target.value)}/>
                                             <label for="merokok" class="block text-sm font-medium leading-6 text-gray-900">Merokok</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="alkohol" value="alkohol" name="kegiatan_luar" onChange={(e)=> setC(e.target.value)}/>
+                                            <input type="radio" id="alkohol" value="alkohol" name="alkohol" onChange={(e)=> setC(e.target.value)}/>
                                             <label for="alkohol" class="block text-sm font-medium leading-6 text-gray-900">Alkohol</label>
                                         </div>
                                         <div class="flex items-center gap-x-2">
-                                            <input type="radio" id="narkoba" value="narkoba" name="kegiatan_luar" onChange={(e)=> setC(e.target.value)}/>
+                                            <input type="radio" id="narkoba" value="narkoba" name="narkoba" onChange={(e)=> setC(e.target.value)}/>
                                             <label for="narkoba" class="block text-sm font-medium leading-6 text-gray-900">Narkoba</label>
                                         </div>
                                     </div>
